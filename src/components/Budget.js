@@ -26,18 +26,17 @@ const Budget = (props) => {
     
     return (
         <div className='alert alert-secondary'>
-          <span>Budget: {currency}
+          <label>Budget: {currency}
           <input
               required='required'
               type='number'
               id='budget'
               max="20000"
               step="10"
-              defaultValue="2000"
-              style={{ marginLeft: '.5rem' , size: 10}}
-              onChange={(event) => checkBudget(event)}>
-              </input>
-              </span>
+              defaultValue="6000"
+              onChange={(event) => checkBudget(event)}
+              />
+          </label>
         </div>
     );
 };
