@@ -24,6 +24,13 @@
   color: white;
 }
 
+.Action-buttons {
+  justify-content: center;
+  border: 0px;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .App-link {
   color: #61dafb;
 }
