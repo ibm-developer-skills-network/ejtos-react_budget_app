@@ -8,9 +8,20 @@ const Budget = () => {
 
     return (
         <div className='alert alert-secondary'>
-            <span>Budget: </span>{Currency}<span>{budget}</span>
+            
+            Budget: {Currency}
+            <input 
+            type="number"
+            id="budgetInput" 
+            min="0" 
+            max="20000" 
+            step="10" 
+            value={budget}/>
         </div>
+        
     );
 };
+
+
 
 export default Budget;
