@@ -2,7 +2,6 @@ import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import Currency from './Currency';
 
-
 const Budget = () => {
     const { budget } = useContext(AppContext);
 
@@ -17,6 +16,8 @@ const Budget = () => {
             max="20000" 
             step="10" 
             value={budget}/>
+        <br></br>
+        Total budget is now {budget}
         </div>
         
     );
