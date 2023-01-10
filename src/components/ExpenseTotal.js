@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
+import currency from './Currency';
 
 const ExpenseTotal = () => {
     const { expenses } = useContext(AppContext);
@@ -10,7 +11,7 @@ const ExpenseTotal = () => {
 
     return (
         <div className='alert alert-primary'>
-            <span>Spent so far: £{totalExpenses}</span>
+            Spent so far: {currency}{totalExpenses}
         </div>
     );
 };
