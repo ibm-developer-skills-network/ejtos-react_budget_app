@@ -23,8 +23,11 @@ const Budget = () => {
     
     return (
         <div className='alert alert-secondary'>
-            Budget: {Currency} <input type="number" step="10" value={budget} onInput={(event)=>changeBudget(event.target.value)}></input>
+            
+            <span>Budget: <input type="number" step="10" value={budget} onInput={(event)=>changeBudget(event.target.value)}></input></span>
+        
         </div>
+
     );
 };
 

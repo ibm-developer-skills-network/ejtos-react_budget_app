@@ -11,7 +11,6 @@ const Currency = () => {
       })
   }
   
-
   return (
     <div className='alert alert-secondary'>
       Currency:<span> </span>
@@ -20,7 +19,8 @@ const Currency = () => {
         <option value="$">$</option>
         <option value="€">€</option>
         <option value="₹">₹</option>
-      </select>   
+      </select>
+     
     </div>
   );
 };
