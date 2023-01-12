@@ -3,7 +3,7 @@ import { AppContext } from '../context/AppContext';
 
 const AllocationForm = (props) => {
     const { dispatch,remaining  } = useContext(AppContext);
-
+    const { currency } = useContext(AppContext);
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
@@ -71,6 +71,7 @@ const AllocationForm = (props) => {
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
                     </button>
+                    {currency}
                 </div>
                 </div>
 
