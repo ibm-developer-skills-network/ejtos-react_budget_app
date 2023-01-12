@@ -13,6 +13,22 @@
   }
 }
 
+	.currency-wrap {
+		position:relative;
+	}
+	
+	.currency-code {
+		position:absolute;
+		left:8px;
+		top:10px;
+	}
+	
+	.text-currency {
+		padding:10px 20px;
+		border:solid 1px #ccc;
+		border-radius:5px;
+	}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
