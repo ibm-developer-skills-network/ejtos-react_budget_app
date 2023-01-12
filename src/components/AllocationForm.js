@@ -60,8 +60,8 @@ const AllocationForm = (props) => {
                 
                   </select>
                
+                 
                     <input
-                    
                         required='required'
                         type='number'
                         id='cost'
