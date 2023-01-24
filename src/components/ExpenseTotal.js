@@ -1,28 +1,19 @@
 import React, { useContext } from 'react';
-import ExpenseItem from './ExpenseItem';
 import { AppContext } from '../context/AppContext';
 
-const ExpenseList = () => {
+const ExpenseTotal = () => {
     const { expenses } = useContext(AppContext);
 
+    const totalExpenses = expenses.reduce((total, item) => {
+        return (total += item.cost);
+    }, 0);
+
     return (
-        <table className='table'>
-              <thead className="thead-light">
-            <tr>
-              <th scope="col">Department</th>
-              <th scope="col">Allocated Budget</th>
-              <th scope="col">Increase by 10</th>
-              <th scope="col">Delete</th>
-            </tr>
-          </thead>
-            <tbody>
-            {expenses.map((expense) => (
-                <ExpenseItem id={expense.id} key={expense.id} name={expense.name} cost={expense.cost} />
-            ))}
-            </tbody>
-        </table>
+        <div className='alert alert-primary'>
+            <span>Spent so far: £{totalExpenses}</span>
+        </div>
     );
 };
 
-export default ExpenseList;
+export default ExpenseTotal;
 
