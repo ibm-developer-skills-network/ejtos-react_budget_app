@@ -6,7 +6,18 @@ const App = () => {
     return (
         <AppProvider>
             <div className='container'>
-                {/* Add the code here to add the components          */}
+                //Add Budget component here under
+        
+                //Add Remaining component here under
+        
+                //Add ExpenseTotal component here under
+        
+                //Add ExpenseList component here under
+        
+                //Add ExpenseItem component here under
+        
+                //Add AllocationForm component here under
+
             </div>
         </AppProvider>
     );
