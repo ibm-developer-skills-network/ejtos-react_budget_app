@@ -7,6 +7,11 @@ import Budget from './components/Budget';
 
 // Add code to import the other components here under
 
+                // Budget component
+                    <div className='col-sm'>
+                        <Budget />
+                    </div>
+
 
 import { AppProvider } from './context/AppContext';
 const App = () => {
