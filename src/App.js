@@ -8,6 +8,7 @@ import Budget from './components/Budget';
 import Remaining from './components/Remaining';
 import ExpenseTotal from './components/ExpenseTotal';
 
+
 const App = () => {
     return (
         <AppProvider>
@@ -23,9 +24,18 @@ const App = () => {
                         <div className='col-sm'>
                             <ExpenseTotal />
                         </div>
-                        <div className='col-sm'>
-                            <ExpenseTotal />
-                        </div> 
+                        <div className="col-sm-3" style={{ marginLeft: '1rem' }}>
+                    <label className='alert alert-primary' htmlFor="inputGroupSelect02">Currency:
+                        <select className='alert'>
+                                <option value="Dollar" name="Dollar">$ Dollar</option>
+                                <option value="Pound" name="Pound">£ Pound</option>
+                                <option value="Euro" name="Euro">€ Euro</option>
+                                <option value="Ruppee" name="Ruppee">₹ Ruppee</option>
+                        </select>
+                    </label>
+                  </div>                        
+                        
+                                                                 
                     </div>
                     <h3 className='mt-3'>Allocation</h3>
                     <div className='row'>   
