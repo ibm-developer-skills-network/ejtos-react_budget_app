@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
+import ExpenseTotal from './ExpenseTotal';
 
 const AllocationForm = (props) => {
     const { dispatch,remaining  } = useContext(AppContext);
@@ -15,7 +16,12 @@ const AllocationForm = (props) => {
                 setCost("");
                 return;
             }
-
+            //cost lowered below budget
+            if (cost < ExpenseTotal) {
+                alert ("You cannot reduce value lower than spending");
+                setCost("");
+                return;
+            }
         const expense = {
             name: name,
             cost: parseInt(cost),
@@ -65,7 +71,7 @@ const AllocationForm = (props) => {
                         type='number'
                         id='cost'
                         value={cost}
-                        style={{ marginLeft: '2rem' , size: 10}}
+                        style={{ marginLeft: '0' , size: 10}}
                         onChange={(event) => setCost(event.target.value)}>
                     </input>
                 
