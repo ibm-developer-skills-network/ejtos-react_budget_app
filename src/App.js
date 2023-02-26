@@ -9,9 +9,10 @@ import Budget from './components/Budget';
 // Add code to import the other components here under
 import Remaining from './components/Remaining';
 import ExpenseTotal from './components/ExpenseTotal';
-import ExpenseItem from './components/ExpenseItem';
+
 import AllocationForm from './components/AllocationForm';
 import ExpenseList from './components/ExpenseList';
+import Currency from './components/Currency';
 
 
 
@@ -21,7 +22,7 @@ const App = () => {
         <AppProvider>
             <div className='container'>
                 <h1 className='mt-3'>Company's Budget Allocation</h1>
-                    <div className='row mt-3'>
+                    <div className='row mt-4'>
                         {/* Add Budget component here under */}  
                         <div className='col-sm'>
                             <Budget/>    
@@ -35,6 +36,10 @@ const App = () => {
                         <div className='col-sm'>
                             <ExpenseTotal/>
                         </div> 
+                        {/*  Add Location based currency */}
+                        <div className='col-sm'>
+                            <Currency/>
+                        </div>
                     </div>     
                        
                         {/* Add ExpenseList component here under */}  
@@ -46,9 +51,7 @@ const App = () => {
                 </div>      
 
                         {/* Add ExpenseItem component here under */} 
-                        <div className='col-sm'>
-                            <ExpenseItem/>
-                        </div>       
+                              
 
                         {/* Add AllocationForm component here under */} 
                     <h3 className='mt-3'>Change allocation</h3>
