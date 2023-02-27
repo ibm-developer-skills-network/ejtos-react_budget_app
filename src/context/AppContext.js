@@ -3,6 +3,7 @@ import React, { createContext, useReducer } from 'react';
 // 5. The reducer - this is used to update the state, based on the action
 export const AppReducer = (state, action) => {
     let budget = 0;
+
     switch (action.type) {
         case 'ADD_EXPENSE':
             let total_budget = 0;
@@ -37,7 +38,7 @@ export const AppReducer = (state, action) => {
                         budget = state.budget + action.payload.cost
                     }
                     return currentExp
-                })
+                }) 
                 action.type = "DONE";
                 return {
                     ...state,
@@ -65,10 +66,10 @@ export const AppReducer = (state, action) => {
                 ...state,
             };
         case 'CHG_CURRENCY':
-            action.type = "DONE";
-            state.currency = action.payload;
+            // action.type = "CHG_CURRENCY";
             return {
-                ...state
+                ...state,
+                currency: action.payload,
             }
 
         default:
@@ -86,7 +87,9 @@ const initialState = {
         { id: "Human Resource", name: 'Human Resource', cost: 40 },
         { id: "IT", name: 'IT', cost: 500 },
     ],
-    currency: '£'
+    currency: '£',
+    
+
 };
 
 // 2. Creates the context this is the thing our components import and use to get the state
@@ -97,12 +100,17 @@ export const AppContext = createContext();
 export const AppProvider = (props) => {
     // 4. Sets up the app state. takes a reducer, and an initial state
     const [state, dispatch] = useReducer(AppReducer, initialState);
+    //let [currency, setCurrency] = useState('$');
+    let newTotalExpenses = 0;
     let remaining = 0;
+    
 
     if (state.expenses) {
             const totalExpenses = state.expenses.reduce((total, item) => {
             return (total = total + item.cost);
         }, 0);
+        newTotalExpenses = totalExpenses;
+
         remaining = state.budget - totalExpenses;
     }
 
@@ -113,7 +121,9 @@ export const AppProvider = (props) => {
                 budget: state.budget,
                 remaining: remaining,
                 dispatch,
-                currency: state.currency
+                currency: state.currency,
+                totalExpenses: newTotalExpenses,
+                selectedCurrency: state.selectedCurrency
             }}
         >
             {props.children}
