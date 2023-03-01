@@ -3,25 +3,28 @@ import { AppContext } from '../context/AppContext';
 import ExpenseTotal from '../components/ExpenseTotal';
 
 const Budget = () => {
-    const { budget } = useContext(AppContext);
-
+    const { budget, setBudget, Location } = useContext(AppContext);
+   
     return (
         <div className='alert alert-secondary'>          
-            <span>Budget: £</span>
+            <span>Budget:{Location}</span>
                 <input
-                    contentEditable='true'
-                    type ='number'
-                    label='TextField'
-                    InputProps={{
-                        inputProps: {
+                        contentEditable='true'
+                        required='required'
+                        type='number'
+                        id='budget'
+                        value={budget}
+                        style={{ marginLeft: '0' , size: 10}}
+                        onChange={(event) => setBudget(event.target.value)}
+                        InputProps={{
+                            inputProps: {
                             max:20000, min:{ExpenseTotal}
                             }
-                        }}
-                    value= {budget}
-                    id='budget'
-                    style={{ marginLeft: '0' , size: 10}}
-                    onChange={(event) => Budget(event.target.value)}>
+                        }}>              
                 </input>
+                    
+                   
+                
             
         </div>
     );

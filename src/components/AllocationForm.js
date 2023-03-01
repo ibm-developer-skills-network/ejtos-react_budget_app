@@ -3,7 +3,7 @@ import { AppContext } from '../context/AppContext';
 import ExpenseTotal from './ExpenseTotal';
 
 const AllocationForm = (props) => {
-    const { dispatch,remaining  } = useContext(AppContext);
+    const { dispatch, remaining, Location } = useContext(AppContext);
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
@@ -12,14 +12,14 @@ const AllocationForm = (props) => {
     const submitEvent = () => {
 
             if(cost > remaining) {
-                alert("The value cannot exceed remaining funds  £"+remaining);
+                alert("The value cannot exceed remaining funds",{Location} +remaining);
                 setCost("");
                 return;
             }
             //cost lowered below budget
             if (cost < ExpenseTotal) {
                 alert ("You cannot reduce value lower than spending");
-                setCost("");
+                setCost(cost);
                 return;
             }
         const expense = {
@@ -65,7 +65,7 @@ const AllocationForm = (props) => {
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
 
-                <span style={{marginLeft:'2rem'}}>£</span>
+                <span style={{marginLeft:'2rem'}}>{Location}</span>
                     <input
                         required='required'
                         type='number'
@@ -75,7 +75,6 @@ const AllocationForm = (props) => {
                         onChange={(event) => setCost(event.target.value)}>
                     </input>
                 
-
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
                     </button>
