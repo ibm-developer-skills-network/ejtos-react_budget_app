@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
 
 const AllocationForm = () => {
-  const { dispatch, remaining } = useContext(AppContext);
+  const { dispatch, currency, remaining } = useContext(AppContext);
 
   const [name, setName] = useState("");
   const [cost, setCost] = useState("");
@@ -77,14 +77,16 @@ const AllocationForm = () => {
             Reduce
           </option>
         </select>
-        <input
-          required
-          type="number"
-          id="cost"
-          value={cost}
-          style={{ marginLeft: "2rem", size: 10 }}
-          onChange={(event) => setCost(event.target.value)}
-        ></input>
+        <span style={{ marginLeft: "2rem", size: 10 }}>
+          {currency}
+          <input
+            required
+            type="number"
+            id="cost"
+            value={cost}
+            onChange={(event) => setCost(event.target.value)}
+          ></input>
+        </span>
         <button
           className="btn btn-primary"
           onClick={submitEvent}
