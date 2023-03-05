@@ -30,11 +30,11 @@ const App = () => {
           <div className="col-sm">
             <Currency />
           </div>
-          <h1 className="mt-3">Allocation</h1>
+          <h2 className="mt-3">Allocation</h2>
           <div>
             <ExpenseList />
           </div>
-          <h1 className="mt-3">Change Allocation</h1>
+          <h2 className="mt-3">Change Allocation</h2>
           <div>
             <AllocationForm />
           </div>

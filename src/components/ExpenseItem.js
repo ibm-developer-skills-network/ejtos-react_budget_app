@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { TiDelete } from "react-icons/ti";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const ExpenseItem = (props) => {
   const { dispatch, currency } = useContext(AppContext);
