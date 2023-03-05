@@ -16,7 +16,7 @@ const App = () => {
   return (
     <AppProvider>
       <div className="container">
-        <h1 className="mt-3">Company's Budget Allocation</h1>
+        <h2 className="mt-3">Company's Budget Allocation</h2>
         <div className="row mt-3">
           <div className="col-sm">
             <Budget />
@@ -30,11 +30,11 @@ const App = () => {
           <div className="col-sm">
             <Currency />
           </div>
-          <h2 className="mt-3">Allocation</h2>
+          <h3 className="mt-3">Allocation</h3>
           <div>
             <ExpenseList />
           </div>
-          <h2 className="mt-3">Change Allocation</h2>
+          <h3 className="mt-3">Change Allocation</h3>
           <div>
             <AllocationForm />
           </div>
