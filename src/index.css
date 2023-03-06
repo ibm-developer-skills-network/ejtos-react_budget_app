@@ -11,3 +11,29 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Currency Component style */
+
+.currency-dropdown,
+.currency-dropdown:hover,
+.currency-dropdown:focus
+{
+    background-color: #77dd77;
+    border: none
+}
+
+.currency-menu {
+    background-color: #79ee79;
+    color: #000;
+    border: 1px solid #000;
+}
+
+.currency-item:hover {
+    background-color: #FFF;
+}
+
+/* Expense item style */
+
+.plus:hover, .minus:hover {
+    cursor: pointer;
+}
