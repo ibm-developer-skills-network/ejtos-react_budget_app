@@ -7,11 +7,12 @@ const AllocationForm = (props) => {
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
+    const [currency, setCurrency] = useState('');
 
     const submitEvent = () => {
 
             if(cost > remaining) {
-                alert("The value cannot exceed remaining funds  £"+remaining);
+                alert("The value cannot exceed remaining funds "+currency+remaining);
                 setCost("");
                 return;
             }
@@ -20,6 +21,7 @@ const AllocationForm = (props) => {
             name: name,
             cost: parseInt(cost),
         };
+        
         if(action === "Reduce") {
             dispatch({
                 type: 'RED_EXPENSE',
@@ -51,7 +53,7 @@ const AllocationForm = (props) => {
                 <option value="Admin" name="admin">Admin</option>
                   </select>
 
-                    <div className="input-group-prepend" style={{ marginLeft: '2rem' }}>
+                <div className="input-group-prepend" style={{ marginLeft: '2rem' }}>
                 <label className="input-group-text" htmlFor="inputGroupSelect02">Allocation</label>
                   </div>
                   <select className="custom-select" id="inputGroupSelect02" onChange={(event) => setAction(event.target.value)}>
@@ -59,6 +61,17 @@ const AllocationForm = (props) => {
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
 
+                <div className="input-group-prepend" style={{ marginLeft: '2rem'}}>
+                <label className="input-group-text" htmlFor="inputGroupSelect03" style={{backgroundColor: 'greenyellow'}}>Currency</label>
+                  </div>
+                  <select className="custom-select" id="inputGroupSelect03" style={{backgroundColor: 'blanchedalmond'}} onChange={(event) => setCurrency(event.target.value)}>
+                    <option defaultValue value="£" name="Pound">£ Pound</option>
+                    <option value="$" name="Dollar">$ Dollar</option>
+                    <option value="€" name="Euro">€ Euro</option>
+                    <option value="₹" name="Ruppee">₹ Ruppee</option>
+                  </select>
+
+                    <label className="input-group-text" style={{ marginLeft: '4rem'}}>{currency}</label>
                     <input
                         required='required'
                         type='number'
