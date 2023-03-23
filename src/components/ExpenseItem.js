@@ -1,6 +1,7 @@
 //Import AppContext and useContext Hook
 import React, {useContext} from 'react';
 import {AppContext} from '../context/AppContext';
+import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 
 //Import TiDelete
 import {TiDelete} from 'react-icons/ti';
@@ -9,7 +10,7 @@ import {TiDelete} from 'react-icons/ti';
 const ExpenseItem = (props) => {
 
     //Use dispatch element from the AppContext AppReducer
-    const {dispatch} = useContext(AppContext);
+    const {dispatch, currency} = useContext(AppContext);
 
     //Creates a delete method using dispatch
     const handleDeleteExpense = () => {
@@ -37,12 +38,24 @@ const ExpenseItem = (props) => {
         });
     };
 
+    const decreaseAllocation = (name) => {
+        const expense = {
+            name,
+            cost: 10,
+        };
+        dispatch({
+            type: "RED_EXPENSE",
+            payload: expense,
+        });
+    };
+
     //Returns expense name, cost 
     return (
         <tr>
             <td>{props.name}</td>
-            <td>£{props.cost}</td>
-            <td><button onClick={event=> increaseAllocation(props.name)}><b>+</b></button></td>
+            <td>{currency}{props.cost}</td>
+            <td><AiFillPlusCircle size="2.25em" color="green" onClick={(event) => increaseAllocation(props.name)}/></td>
+            <td><AiFillMinusCircle size="2.25em" color="red" onClick={(event) => decreaseAllocation(props.name)}/></td>
             <td><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
         </tr>
     );

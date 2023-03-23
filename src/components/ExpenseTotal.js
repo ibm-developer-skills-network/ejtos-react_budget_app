@@ -6,7 +6,7 @@ import {AppContext} from '../context/AppContext';
 const ExpenseTotal = () => {
 
     //Use expenses element from AppContext
-    const {expenses} = useContext(AppContext);
+    const {expenses, currency} = useContext(AppContext);
 
     //Variable totalExpenses is equal to the sum of all expense items
     const totalExpenses = expenses.reduce((total, item) => {
@@ -17,7 +17,7 @@ const ExpenseTotal = () => {
     //Return blue-colored div with text and calculated-value displayed
     return (
         <div className='alert alert-primary'>
-            <span>Spent so far: £{totalExpenses}</span>
+            <span>Spent so far: {currency}{totalExpenses}</span>
         </div>
     );
 };

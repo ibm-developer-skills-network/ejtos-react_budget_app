@@ -2,14 +2,17 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-//Code to import Budget.js
+//Code to import components
 import Budget from './components/Budget';
 import Remaining from './components/Remaining';
 import ExpenseTotal from './components/ExpenseTotal';
 import ExpenseList from './components/ExpenseList';
 import AllocationForm from './components/AllocationForm';
+import Currency from './components/Currency';
 
+//Imports AppProvider component from AppContext
 import { AppProvider } from './context/AppContext';
+
 const App = () => {
     return (
         <AppProvider>
@@ -19,6 +22,7 @@ const App = () => {
                     {<div className='col-sm'><Budget /></div>}        
                     {<div className='col-sm'><Remaining /></div>}        
                     {<div className='col-sm'><ExpenseTotal /></div>}
+                    {<div className='col-sm'><Currency /></div>}
                 </div>
                 <div className='row mt-3'>        
                     {<div className='col-sm'><ExpenseList /></div>}                        
@@ -30,4 +34,5 @@ const App = () => {
         </AppProvider>
     );
 };
+
 export default App;
