@@ -12,7 +12,7 @@ const Budget = (props) => {
         }, 0);
 
         if(budget > budget_limit) {
-            alert("The value cannot exceed maximum budget of  £"+budget_limit);
+            alert("The value cannot exceed maximum budget of  "+currency+budget_limit);
             dispatch({
                 type: 'SET_BUDGET',
                 payload: budget_limit
@@ -21,7 +21,7 @@ const Budget = (props) => {
         }
         
         else if (budget < totalExpenses){
-            alert("The value cannot be lower than you already spent £"+totalExpenses);
+            alert("The value cannot be lower than you already spent "+currency+totalExpenses);
             dispatch({
                 type: 'SET_BUDGET',
                 payload: budget

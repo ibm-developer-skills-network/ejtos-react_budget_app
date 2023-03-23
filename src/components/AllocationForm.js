@@ -2,12 +2,18 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const AllocationForm = (props) => {
-    const { dispatch,remaining  } = useContext(AppContext);
+    const { dispatch,remaining, currency } = useContext(AppContext);
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
-    const [currency, setCurrency] = useState('');
+
+    const changeCurrency = (currency) => {
+        dispatch({
+            type: 'CHG_CURRENCY',
+            payload: currency
+        });
+    }
 
     const submitEvent = () => {
 
@@ -64,7 +70,7 @@ const AllocationForm = (props) => {
                 <div className="input-group-prepend" style={{ marginLeft: '2rem'}}>
                 <label className="input-group-text" htmlFor="inputGroupSelect03" style={{backgroundColor: 'greenyellow'}}>Currency</label>
                   </div>
-                  <select className="custom-select" id="inputGroupSelect03" style={{backgroundColor: 'blanchedalmond'}} onChange={(event) => setCurrency(event.target.value)}>
+                  <select className="custom-select" id="inputGroupSelect03" style={{backgroundColor: 'blanchedalmond'}} onChange={(event) => changeCurrency(event.target.value)}>
                     <option defaultValue value="£" name="Pound">£ Pound</option>
                     <option value="$" name="Dollar">$ Dollar</option>
                     <option value="€" name="Euro">€ Euro</option>
