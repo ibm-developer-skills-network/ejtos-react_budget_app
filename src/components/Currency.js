@@ -42,7 +42,7 @@ const Currency = () => {
   </Dropdown.Toggle>
 
 <Dropdown.Menu className=" border border-sucess bg-sucess text-black">
-  {CURRENCY_LIST.map}((currency) => (
+  {CURRENCY_LIST.map((currency) => (
   <Dropdown.Item onClick={() => changeCurrency(currency)}>
                       {currency.symbol} {currency.name}
                       </Dropdown.Item>
