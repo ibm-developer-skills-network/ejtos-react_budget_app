@@ -1,7 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {AppContext} from '../context/AppContext';
-import Dropdown from 'react-bootstrap/Dropdown';
-
+import {Dropdown} from 'react-bootstrap';
 
 const Currency = () => {
 
@@ -26,9 +25,10 @@ const Currency = () => {
     };
 
     return (
-        <div class='d-inline-flex align-items-left justify-content-between' style={{ height: "100%" }}>
-            <Dropdown>
-                <Dropdown.Toggle variant="success" className="text-white">
+        <div class='d-inline-flex align-items-center justify-content-between' style={{ height: "80%"}}>
+            <Dropdown > 
+                <Dropdown.Toggle variant="success" className="text-white"
+                 onMouseOver={() => changeCurrency(currency)}> 
                     Currency ({currency.symbol} {currency.name})
                 </Dropdown.Toggle>
 
