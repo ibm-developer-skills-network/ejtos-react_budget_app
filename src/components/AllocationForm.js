@@ -2,6 +2,7 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
+
 const AllocationForm = (props) => {
     const { dispatch,remaining  } = useContext(AppContext);
 
@@ -68,9 +69,9 @@ const AllocationForm = (props) => {
                         style={{ marginLeft: '2rem' , size: 10}}
                         onChange={(event) => setCost(event.target.value)}>
                         </input>
-
+                     
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
-                        Save
+                     Save
                     </button>
                 </div>
                 </div>

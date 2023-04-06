@@ -28,7 +28,7 @@ const Currency = () => {
         <div class='d-inline-flex align-items-center justify-content-between' style={{ height: "80%"}}>
             <Dropdown > 
                 <Dropdown.Toggle variant="success" className="text-white"
-                 onMouseOver={() => changeCurrency(currency)}> 
+                 onTouchMove={() => changeCurrency(currency)}> 
                     Currency ({currency.symbol} {currency.name})
                 </Dropdown.Toggle>
 
