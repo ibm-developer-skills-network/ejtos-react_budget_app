@@ -1,33 +1,51 @@
-import React, { useContext, useState } from 'react';
-import { AppContext } from '../context/AppContext';
+import React, {useContext} from 'react';
+import {AppContext} from '../context/AppContext';
+
+//Create Arrow Function Method
 const Budget = () => {
-    const { budget, totalExpenses, currency } = useContext(AppContext);
-  const [updatedBudget, setupdatedBudget] = useState(budget);
-  console.log('Expenses' + totalExpenses);
-  const withBudget = (e) => {
-    const newBudget = parseInt(e.target.value);
-    if (newBudget > 20000) {
-      alert("Cannot be greater than 20,000");
-      setupdatedBudget(budget);
-      return;
-    } else if(newBudget < totalExpenses) {
-        alert("Cannot be less than" + totalExpenses);
-        setupdatedBudget(budget);
-        return;
-    }else
-     {
-      setupdatedBudget(newBudget);
-    }
-  }
-  return (
-    <div className='alert alert-secondary'>
-      <span>Budget {currency}:  
-        <input type="number"
-          value={updatedBudget}
-          step={10}
-          onChange={withBudget}/>
-      </span>
-    </div>
-  );
+
+    //Use budget element from AppContext
+    const {budget, dispatch, expenses, currency} = useContext(AppContext);
+
+    const totalExpenses = expenses.reduce((sum, item) => {
+        return (sum = sum + item.cost);
+      }, 0);
+
+    const setBudget = (event) => {
+        if (event.target.value > 20000) {
+            alert ('The budget value cannot exceed £20,000.');
+            setBudget('');
+            return;
+        }
+        else if (event.target.value < totalExpenses) {
+            alert("The budget value cannot be lower than the expenses.");
+            setBudget('');
+            return;
+        }
+        dispatch ({
+            type: 'SET_BUDGET',
+            payload: event.target.value
+        });
+    };
+
+    //Return grey-colored div with text and budget elements displayed
+    return (
+        <div className='alert alert-secondary'>
+            <span>Budget: {currency}
+                <input
+                    defaultValue={budget}
+                    max='20000'
+                    min={totalExpenses}
+                    required='required'                    
+                    step='10'
+                    style={{ marginLeft: '0.25rem'}}
+                    type='number'
+                    onInput={(event) => setBudget(event)}>
+                </input>
+            </span>
+        </div>
+    );
 };
+
+//Allow other files to access Budget.js
 export default Budget;

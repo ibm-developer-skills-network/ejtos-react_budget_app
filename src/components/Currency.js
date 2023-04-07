@@ -25,10 +25,9 @@ const Currency = () => {
     };
 
     return (
-        <div class='d-inline-flex align-items-center justify-content-between' style={{ height: "80%"}}>
-            <Dropdown > 
-                <Dropdown.Toggle variant="success" className="text-white"
-                 onTouchMove={() => changeCurrency(currency)}> 
+        <div className='alert alert-secondary' class='d-inline-flex align-items-center justify-content-between' style={{ height: "80%"}}>
+            <Dropdown className='alert alert-sucess' >
+                <Dropdown.Toggle variant="success" className="text-white">
                     Currency ({currency.symbol} {currency.name})
                 </Dropdown.Toggle>
 
