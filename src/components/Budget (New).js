@@ -19,7 +19,7 @@ const New Budget = () => {
     const handleBudgetChange = (event) => {
         const value = parseInt(event.target.value);
     if (value > expenses) {
-        alert("The value cannot exceed remaining funds £"+(budget-Remaining));
+        alert alert-secondary("The value cannot exceed remaining funds £"+(budget-Remaining));
     } else {
         setNewBudget(value);
     };
