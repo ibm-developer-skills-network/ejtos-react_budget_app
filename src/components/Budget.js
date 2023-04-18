@@ -3,9 +3,8 @@ import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
     const { budget } = useContext(AppContext);
-    const remaining = require("./Remaining")
         if ({ budget } > 20000) {
-            alert("The value cannot exceed remaining funds  £"+({ remaining }));
+            alert("The value cannot exceed £20000");
             return;
         } else {
             return (
