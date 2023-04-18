@@ -1,0 +1,143 @@
+[33mcommit 282c21cf49571e8821f600d90f10e24d2b83939d[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: avestashivana <avesta_shivana@yahoo.com>
+Date:   Tue Apr 18 20:44:29 2023 +0330
+
+    Initial commit
+
+[33mcommit a76ae12e135bb0a996a63edb53226d1f1ce48868[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;31marthurdent/main[m[33m)[m
+Author: lavskillup <73978832+lavskillup@users.noreply.github.com>
+Date:   Mon Feb 6 13:12:45 2023 +0530
+
+    Update App.js
+
+[33mcommit e0bed98b916f298ab47ab5afaf1da056cee151b2[m
+Author: lavskillup <73978832+lavskillup@users.noreply.github.com>
+Date:   Mon Feb 6 11:52:25 2023 +0530
+
+    Update App.js
+
+[33mcommit d7e75434192349ca396dd224ad6082b11f67b8d5[m
+Author: lavskillup <73978832+lavskillup@users.noreply.github.com>
+Date:   Mon Feb 6 11:45:03 2023 +0530
+
+    Update App.js
+
+[33mcommit ab50426cb15edc9890ea5485409235c557e1d918[m
+Author: lavskillup <73978832+lavskillup@users.noreply.github.com>
+Date:   Mon Feb 6 11:32:13 2023 +0530
+
+    Update AppContext.js
+
+[33mcommit 8db975164aee409e5a87f8b429efdc578508959d[m
+Author: lavskillup <73978832+lavskillup@users.noreply.github.com>
+Date:   Mon Feb 6 09:36:41 2023 +0530
+
+    Update App.js
+
+[33mcommit cade8744b83af8a92dc11da2fc9430485b535e18[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Wed Nov 2 17:55:09 2022 +0530
+
+    Update index.html
+
+[33mcommit 5adb1f426261b2294be0930ff64bdc6789d34fcf[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Wed Nov 2 09:25:06 2022 +0530
+
+    Update App.js
+
+[33mcommit f327b4fd9491f1d2a1b31be41194134d523240e8[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:10:32 2022 +0530
+
+    Add files via upload
+
+[33mcommit acdde7a6bcc951c38fffaf4bf5c61929eeb48a28[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:09:54 2022 +0530
+
+    Add files via upload
+
+[33mcommit feb077414b2be2a8d2c4fd0511655cc34352d774[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:09:07 2022 +0530
+
+    Create index.html
+
+[33mcommit 0ea691506984878025963df9d2260ce9cfee293c[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:07:05 2022 +0530
+
+    Add files via upload
+
+[33mcommit 65c04cf5b9b9b24b806d234a624d5da497265175[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:06:03 2022 +0530
+
+    Create AppContext.js
+
+[33mcommit 3e932b385f77fc4fac93f90d1d64be9e2156a39d[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:05:22 2022 +0530
+
+    Create Remaining.js
+
+[33mcommit d3879428d54d744641dd2f05dfd7c682c77fb283[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:04:42 2022 +0530
+
+    Create ExpenseTotal.js
+
+[33mcommit 009b0b8076544186de75ffa3209989b84fea8119[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:04:24 2022 +0530
+
+    Create ExpenseList.js
+
+[33mcommit 9da8f56717021cf339010329090361b294b77fe4[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:04:05 2022 +0530
+
+    Create ExpenseItem.js
+
+[33mcommit a808059f4965f7d7cf44c4f83688d77a984408bf[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:03:40 2022 +0530
+
+    Create Budget.js
+
+[33mcommit 23f6e5ef3ddb82bca66cceca8f245784fc10e313[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:03:16 2022 +0530
+
+    Create AllocationForm.js
+
+[33mcommit 641d0edc904742f68d658e0cec5d353f1fbd7f1b[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:02:34 2022 +0530
+
+    Delete AllocationForm.js
+
+[33mcommit d2523cf87bc26b2988e9f6bc7bbc6a14f04187f2[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:02:24 2022 +0530
+
+    Delete components
+
+[33mcommit 4d9c63015b9c1ecc79c87b9de7e8d3125acdbb3f[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 11:01:55 2022 +0530
+
+    Add files via upload
+
+[33mcommit a4d711ed212901a5c2ef66e601b58452eb1d9a52[m
+Author: pallavir7597 <117059962+pallavir7597@users.noreply.github.com>
+Date:   Mon Oct 31 10:58:40 2022 +0530
+
+    Create components
+
+[33mcommit be3644de7b557d51a4de11b4a5c461d4e72a34ce[m
+Author: ibm-skills-network-bot <70593948+ibm-skills-network-bot@users.noreply.github.com>
+Date:   Mon Oct 31 00:43:50 2022 -0400
+
+    Initial commit
