@@ -19,13 +19,8 @@ const Currency = () => {
         <option value="€ Euro">€ Euro</option>
         <option value="₹ Ruppee">₹ Ruppee</option>
       </select>
-
-      <input
-      style=color: green
-      onChange={(event) => setCost(event.target.value)}>
-      </input>
-      }	
-        </div>
+        }	
+    </div>
     );
 };
 
