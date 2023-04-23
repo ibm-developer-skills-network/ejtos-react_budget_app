@@ -28,6 +28,30 @@ export const AppReducer = (state, action) => {
           ...state,
         };
       }
+    case "DECREASE_EXPENSE":
+      let total_budgetd = 0;
+      total_budgetd = state.expenses.reduce((previousExp, currentExp) => {
+        return previousExp + currentExp.cost;
+      }, 0);
+      total_budgetd = total_budgetd + action.payload.cost;
+      action.type = "DONE";
+      if (total_budgetd <= state.budget) {
+        total_budgetd = 0;
+        state.expenses.map((currentExp) => {
+          if (currentExp.name === action.payload.name) {
+            currentExp.cost = currentExp.cost - action.payload.cost;
+          }
+          return currentExp;
+        });
+        return {
+          ...state,
+        };
+      } else {
+        alert("Cannot increase the allocation! Out of funds");
+        return {
+          ...state,
+        };
+      }
     case "RED_EXPENSE":
       const red_expenses = state.expenses.map((currentExp) => {
         if (
@@ -71,6 +95,12 @@ export const AppReducer = (state, action) => {
       return {
         ...state,
       };
+    case "CHANGE_BUDGET":
+      action.type = "DONE";
+      state.budget = action.payload;
+      return {
+        ...state,
+      };
 
     default:
       return state;
@@ -79,7 +109,7 @@ export const AppReducer = (state, action) => {
 
 // 1. Sets the initial state when the app loads
 const initialState = {
-  budget: 2000,
+  budget: 20000,
   expenses: [
     { id: "Marketing", name: "Marketing", cost: 50 },
     { id: "Finance", name: "Finance", cost: 300 },
