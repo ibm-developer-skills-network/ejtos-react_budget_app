@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
-const ExpenseTotal = () => {
+const ExpenseTotal = () => {git
     const { expenses } = useContext(AppContext);
     const totalExpenses = expenses.reduce((total, item) => {
         return (total += item.cost);
