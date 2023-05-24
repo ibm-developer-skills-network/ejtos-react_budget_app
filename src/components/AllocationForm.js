@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AppContext } from "../context/AppContext";
+import { actions } from "../context/actions";
 
 export const AllocationForm = (props) => {
   const { dispatch, remaining } = useContext(AppContext);
@@ -20,15 +21,9 @@ export const AllocationForm = (props) => {
       cost: parseInt(cost),
     };
     if (action === "Reduce") {
-      dispatch({
-        type: "RED_EXPENSE",
-        payload: expense,
-      });
+      dispatch(actions.redExpense(expense));
     } else {
-      dispatch({
-        type: "ADD_EXPENSE",
-        payload: expense,
-      });
+      dispatch(actions.addExpense(expense));
     }
   };
 

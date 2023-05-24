@@ -8,9 +8,10 @@ import {
   ExpenseTotal,
   ExpenseList,
   Remaining,
+  CurrenciesSelector,
 } from "./components";
-
 import { AppProvider } from "./context/AppContext";
+
 const App = () => {
   return (
     <AppProvider>
@@ -25,6 +26,9 @@ const App = () => {
           </div>
           <div className="col-sm">
             <ExpenseTotal />
+          </div>
+          <div className="col-sm">
+            <CurrenciesSelector />
           </div>
           <ExpenseList />
           <AllocationForm />
