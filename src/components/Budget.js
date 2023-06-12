@@ -33,6 +33,7 @@ const Budget = () => {
       <span style={{ marginRight: '10px' }}>Budget: {currency}</span>
       <input
         type='number'
+        step={10}
         value={newBudget}
         onChange={handleBudgetChange}
         onBlur={handleSaveBudget}
