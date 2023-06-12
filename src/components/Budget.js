@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-  const { budget, dispatch, totalExpenses } = useContext(AppContext);
+  const { budget, dispatch, totalExpenses, currency } = useContext(AppContext);
   const [newBudget, setNewBudget] = useState(budget);
 
   const handleBudgetChange = (e) => {
@@ -30,7 +30,7 @@ const Budget = () => {
 
   return (
     <div className='alert alert-secondary' style={{ display: 'flex', alignItems: 'center' }}>
-      <span style={{ marginRight: '10px' }}>Budget: £</span>
+      <span style={{ marginRight: '10px' }}>Budget: {currency}</span>
       <input
         type='number'
         value={newBudget}
