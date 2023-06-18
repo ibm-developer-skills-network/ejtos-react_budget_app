@@ -31,6 +31,7 @@ The budget allocator is a powerful tool built using React and Node.js, specifica
 
 ## Code Snippet
 The code files provided showcases the implementation of the budget allocator using JavaScript and React. Leveraging the power of React components, hooks, and context, the code efficiently manages the application's state and handles user interactions. This ensures a smooth and responsive user experience throughout the budget allocation process.
+![poliklinikvildan](https://github.com/poliklinikvildan/ejtos-react_budget_app/assets/134360221/8e1741a2-011d-4b5b-a760-da89c202d325)
 
 ## Conclusion
 Overall, the budget allocator represents a valuable tool for companies aiming to optimize their budget management by providing an organized, user-friendly, and real-time approach to allocating funds across different departments.
