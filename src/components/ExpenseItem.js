@@ -1,10 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { TiDelete } from 'react-icons/ti';
 import { AppContext } from '../context/AppContext';
 
 const ExpenseItem = (props) => {
   const { dispatch, currency } = useContext(AppContext);
-  const [showOrangeFrame, setShowOrangeFrame] = useState(false);
 
   const handleDeleteExpense = () => {
     dispatch({
@@ -19,14 +18,10 @@ const ExpenseItem = (props) => {
       cost: 10,
     };
 
-    if (props.cost + expense.cost > 1998) {
-      setShowOrangeFrame(true);
-    } else {
-      dispatch({
-        type: 'ADD_EXPENSE',
-        payload: expense,
-      });
-    }
+    dispatch({
+      type: 'ADD_EXPENSE',
+      payload: expense,
+    });
   };
 
   const decreaseAllocation = (name) => {
@@ -35,17 +30,11 @@ const ExpenseItem = (props) => {
       cost: 10,
     };
 
-    if (props.cost - expense.cost > 1998) {
-      setShowOrangeFrame(true);
-    } else {
-      dispatch({
-        type: 'RED_EXPENSE',
-        payload: expense,
-      });
-    }
+    dispatch({
+      type: 'RED_EXPENSE',
+      payload: expense,
+    });
   };
-
-  const frameStyle = showOrangeFrame ? 'orange-frame' : '';
 
   return (
     <>
@@ -62,36 +51,32 @@ const ExpenseItem = (props) => {
             border-radius: 30px;
           }
           .btn-container.increase {
-            background-color: #4eac5a;
+            background-color: #4eac5a; /* Custom increase button color */
           }
           .btn-container.increase:hover {
             cursor: pointer;
           }
           .btn-container.decrease {
-            background-color: #b12519;
+            background-color: #b12519; /* Custom decrease button color */
           }
           .btn-container.decrease:hover {
             cursor: pointer;
           }
-          .orange-frame {
-            border: 2px solid orange;
-            border-radius: 5px;
-          }
         `}
       </style>
-      <tr className={frameStyle}>
+      <tr>
         <td>{props.name}</td>
         <td>
           {currency}
           {props.cost}
         </td>
         <td>
-          <div className="btn-container increase" onClick={(event) => increaseAllocation(props.name)}>
+          <div className="btn-container increase" onClick={() => increaseAllocation(props.name)}>
             <h1>+</h1>
           </div>
         </td>
         <td>
-          <div className="btn-container decrease" onClick={(event) => decreaseAllocation(props.name)}>
+          <div className="btn-container decrease" onClick={() => decreaseAllocation(props.name)}>
             <h1>-</h1>
           </div>
         </td>
@@ -104,4 +89,3 @@ const ExpenseItem = (props) => {
 };
 
 export default ExpenseItem;
-
