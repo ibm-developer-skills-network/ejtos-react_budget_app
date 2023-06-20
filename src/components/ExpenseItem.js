@@ -5,7 +5,6 @@ import { AppContext } from '../context/AppContext';
 const ExpenseItem = (props) => {
   const { dispatch, currency } = useContext(AppContext);
 
-  // Function to handle deleting an expense
   const handleDeleteExpense = () => {
     dispatch({
       type: 'DELETE_EXPENSE',
@@ -13,7 +12,6 @@ const ExpenseItem = (props) => {
     });
   };
 
-  // Function to increase the allocation of an expense
   const increaseAllocation = (name) => {
     const expense = {
       name: name,
@@ -26,7 +24,6 @@ const ExpenseItem = (props) => {
     });
   };
 
-  // Function to decrease the allocation of an expense
   const decreaseAllocation = (name) => {
     const expense = {
       name: name,
@@ -39,36 +36,10 @@ const ExpenseItem = (props) => {
     });
   };
 
-  const otherCellCosts = [200, 300, 400, 150]; // Example costs of other cells
-  const isHighlighted = props.cost - Math.max(...otherCellCosts) >= 250;
-
-  // Function to show a colored frame and a popup message if the condition is met
-  const showPopupMessage = () => {
-    if (isHighlighted) {
-      alert(`Expense cost condition: ${props.cost - Math.max(...otherCellCosts)} >= 250`);
-    }
-  };
-
   return (
     <>
       <style type="text/css">
         {`
-          .red-orange-frame {
-            position: relative;
-          }
-          .red-orange-frame::after {
-            content: '';
-            position: absolute;
-            top: -6px;
-            left: -93px;
-            right: 6px;
-            bottom: -6px;
-            width: 85%;
-            border: 6px solid #ff5349;
-            box-sizing: border-box;
-            pointer-events: none;
-          }
-
           .btn-container {
             display: flex;
             align-items: center;
@@ -95,7 +66,7 @@ const ExpenseItem = (props) => {
       </style>
       <tr>
         <td>{props.name}</td>
-        <td className={isHighlighted ? 'red-orange-frame' : ''} onClick={showPopupMessage}>
+        <td>
           {currency}
           {props.cost}
         </td>
