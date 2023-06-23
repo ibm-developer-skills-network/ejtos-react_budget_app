@@ -19,8 +19,7 @@ A web-based tool for managing and allocating budgets for different departments w
 This project is built using React, Node.js, and HTML. Please refer to the package.json file for a complete list of dependencies and their versions.
 
 ## Usage
-The budget allocator provides a user-friendly interface for budget allocation. Users can increase or decrease the allocated budget for each department, track the total budget, remaining budget, and spent amount. It allows adding new department rows and saving allocation changes.
-
+The budget allocator provides a user-friendly interface for budget allocation. Users can increase or decrease the allocated budget for each department, track the total budget, remaining budget, and spent amount. 
 ## Overview
 The budget allocator is a powerful tool built using React and Node.js, specifically designed to streamline the management and allocation of budgets for various departments within a company. With its intuitive user interface, the tool offers a seamless experience for users as they navigate and interact with the budget allocation system.
 
