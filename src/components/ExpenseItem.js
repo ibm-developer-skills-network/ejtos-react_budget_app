@@ -5,6 +5,7 @@ import { AppContext } from '../context/AppContext';
 const ExpenseItem = (props) => {
   const { dispatch, currency } = useContext(AppContext);
 
+  // Function to handle deleting an expense
   const handleDeleteExpense = () => {
     dispatch({
       type: 'DELETE_EXPENSE',
@@ -12,6 +13,7 @@ const ExpenseItem = (props) => {
     });
   };
 
+  // Function to increase the allocation of an expense
   const increaseAllocation = (name) => {
     const expense = {
       name: name,
@@ -24,6 +26,7 @@ const ExpenseItem = (props) => {
     });
   };
 
+  // Function to decrease the allocation of an expense
   const decreaseAllocation = (name) => {
     const expense = {
       name: name,
@@ -36,37 +39,39 @@ const ExpenseItem = (props) => {
     });
   };
 
+  const otherCellCosts = [200, 300, 400, 150]; // Example costs of other cells
+  const isHighlighted = props.cost - Math.max(...otherCellCosts) >= 250;
+
+  // Function to show a colored frame and a popup message if the condition is met
+  const showPopupMessage = () => {
+    if (isHighlighted) {
+      alert(`Expense cost condition: ${props.cost - Math.max(...otherCellCosts)} >= 250`);
+    }
+  };
+
   return (
     <>
       <style type="text/css">
         {`
-          .btn-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffffff;
-            width: 2rem;
-            height: 2rem;
-            font-size: 1rem;
-            border-radius: 30px;
+          .red-orange-frame td {
+            position: relative;
           }
-          .btn-container.increase {
-            background-color: #4eac5a; /* Custom increase button color */
-          }
-          .btn-container.increase:hover {
-            cursor: pointer;
-          }
-          .btn-container.decrease {
-            background-color: #b12519; /* Custom decrease button color */
-          }
-          .btn-container.decrease:hover {
-            cursor: pointer;
+          .red-orange-frame td::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 6px solid #ff5349;
+            box-sizing: border-box;
+            pointer-events: none;
           }
         `}
       </style>
-      <tr>
+      <tr className={isHighlighted ? 'red-orange-frame' : ''}>
         <td>{props.name}</td>
-        <td>
+        <td onClick={showPopupMessage}>
           {currency}
           {props.cost}
         </td>
