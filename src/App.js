@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Budget from './components/Budget';
 import Remaining from './components/Remaining';
 import ExpenseTotal from './components/ExpenseTotal';
-import ExpenseItem from './components/ExpenseItem';
+
 import ExpenseList from './components/ExpenseList';
 import AllocationForm from './components/AllocationForm';
 
@@ -30,18 +30,24 @@ const App = () => {
                         <ExpenseTotal />
                     </div>  
                                     
-                        {/* Add ExpenseList component here under */}         
+                        {/* Add ExpenseItem component here under */}         
+
+
+                </div>
+                <h3 className='mt-3'>Allocation</h3>
+                <div className='row '>                   
+                        {/* Add ExpenseList component here under */}        
                     <div className='col-sm'>
                         <ExpenseList />
-                    </div> 
-                        {/* Add ExpenseItem component here under */}        
-                    <div className='col-sm'>
-                        <ExpenseItem />
-                    </div> 
+                    </div>  
+
+                </div>
+                <h3 className='mt-3'>Change allocation</h3>
+                <div className='row mt-3'>
                         {/* Add AllocationForm component here under */}        
                     <div className='col-sm'>
                         <AllocationForm />
-                    </div> 
+                    </div>  
                 </div>
             </div>
         </AppProvider>
