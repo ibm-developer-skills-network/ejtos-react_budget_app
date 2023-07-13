@@ -1,54 +1,32 @@
-// import React, { useContext, useState } from 'react';
-// import { AppContext } from '../context/AppContext';
-// const Budget = (props) => {
-//     // const { budget } = useContext(AppContext);
-//     const {dispatch,budget} = useContext(AppContext);
-//     const [budgets, setBudget] = useState('');
-//     return (
-//         <div className='alert alert-secondary'>Budget: £{
-//             <input
-//                 defaultValue= {2000} 
-//                 required='required'
-//                 type='number'
-//                 id='budget'
-//                 value={budget}
-//                 style={{ marginLeft: '1rem' , size: 10}}
-//                 onChange={(event) => setBudget(event.target.value)}>
-//             </input>}
-//         </div>
-//     );
-// };
-// export default Budget;
-
 import React, { useContext, useState } from 'react';
+import ViewBudget from './ViewBudget';
+import EditBudget from './EditBudget';
 import { AppContext } from '../context/AppContext';
 const Budget = () => {
-    const { budget } = useContext(AppContext);
-    const [budgets,setBudget] = useState('');
+    const { budget, dispatch } = useContext(AppContext);
+    const [isEditing, setIsEditing] = useState(false);
 
-    const submitEvent = () => {
-        let budgets = budget;
+	const handleEditClick = () => {
+		setIsEditing(true);
+	};
 
-        if (budgets > 4000){
-            alert("Error broooo!");
-            setBudget("");
-            return;
-        }
-    };
+	const handleSaveClick = (value) => {
+		dispatch({
+			type: 'SET_BUDGET',
+			payload: value,
+		});
+		setIsEditing(false);
+	};
 
     return (
-        <div className='alert alert-secondary'>
-            <span>Budget: £{
-                                 <input
-                                 required='required'
-                                 type='number'
-                                 id='budgets'
-                                 value={budgets}
-                                 style={{ marginLeft: '2rem' , size: 10}}
-                                 onChange={(event) => setBudget(event.target.value)}>
-                                 </input>   
-            }</span>
-        </div>
+		<div class='alert alert-secondary p-3 d-flex align-items-center justify-content-between'>
+			{isEditing ? (
+				<EditBudget handleSaveClick={handleSaveClick} budget={budget} />
+			) : (
+				// For part 1 render component inline rather than create a seperate one
+				<ViewBudget handleEditClick={handleEditClick} budget={budget} />
+			)}
+		</div>
     );
 };
 export default Budget;
