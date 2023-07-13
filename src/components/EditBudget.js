@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const EditBudget = (props) => {
-    const { expenses,budget } = useContext(AppContext);
+    const { expenses,budget , remaining, currency } = useContext(AppContext);
 	const [value, setValue] = useState(props.budget);
     const totalExpenses = expenses.reduce((total, item) => {
         return (total = total + item.cost);
@@ -10,13 +10,19 @@ const EditBudget = (props) => {
 
 
     if(value > 20000) {
-        alert("The value cannot exceed this value:  £"+value);
+        alert("The value cannot exceed this value:  "+value);
         setValue(budget);
         return;
     }
 
     if (value <= totalExpenses) {
-        alert("The value cannot lower than spending value: £"+totalExpenses);
+        alert("The value cannot lower than spending value: "+totalExpenses);
+        setValue(budget);
+        return;
+    }
+
+    if (value > 3039 && value < 20000) {
+        alert("The value cannot exceed remainning budget");
         setValue(budget);
         return;
     }
