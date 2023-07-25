@@ -8,6 +8,7 @@ const AllocationForm = (props) => {
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
+    const [currency, setCurrency] = useState('');
 
     const submitEvent = () => {
 
@@ -59,16 +60,27 @@ const AllocationForm = (props) => {
                         <option defaultValue value="Add" name="Add">Add</option>
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
-
+                {/* <div className="" style={{ marginLeft: '2rem', backgroundColor: 'lightseagreen' }}>
+                    <label className="input-group-text" htmlFor="inputGroupSelect03">Currency</label>
+                </div> */}
+                {/* <select className="custom-select" id="inputGroupSelect03" onChange={(event) => setCurrency(event.target.value)}>
+                    <option defaultValue>Choose..</option>
+                    <option value="dollar" name="dollar">$ Dollar</option>
+                    <option value="pound" name="pound">£  Pound</option>
+                    <option value="euro" name="euro">€ Euro</option>
+                    <option value="ruppee" name="ruppee">₹ Ruppee</option>
+                </select> */}
+                    <div style={{marginLeft:'2rem'}}>                       
+                    <span>£</span>
                     <input
-                        required='required'
-                        type='number'
-                        id='cost'
-                        value={cost}
-                        style={{ marginLeft: '2rem' , size: 10}}
-                        onChange={(event) => setCost(event.target.value)}>
-                        </input>
-
+                            required='required'
+                            type='number'
+                            id='cost'
+                            value={cost}
+                            style={{size: 10}}
+                            onChange={(event) => setCost(event.target.value)}>
+                            </input>
+                        </div>
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
                     </button>
