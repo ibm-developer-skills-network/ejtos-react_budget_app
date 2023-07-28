@@ -8,7 +8,6 @@ const AllocationForm = (props) => {
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
-    const [currency, setCurrency] = useState('');
 
     const submitEvent = () => {
 
@@ -40,9 +39,9 @@ const AllocationForm = (props) => {
             <div className='row'>
 
             <div className="input-group mb-3" style={{ marginLeft: '2rem' }}>
-                    <div className="input-group-prepend">
+              <div className="input-group-prepend">
                 <label className="input-group-text" htmlFor="inputGroupSelect01">Department</label>
-                  </div>
+                </div>
                   <select className="custom-select" id="inputGroupSelect01" onChange={(event) => setName(event.target.value)}>
                         <option defaultValue>Choose...</option>
                         <option value="Marketing" name="marketing"> Marketing</option>
@@ -59,17 +58,7 @@ const AllocationForm = (props) => {
                   <select className="custom-select" id="inputGroupSelect02" onChange={(event) => setAction(event.target.value)}>
                         <option defaultValue value="Add" name="Add">Add</option>
                 <option value="Reduce" name="Reduce">Reduce</option>
-                  </select>
-                {/* <div className="" style={{ marginLeft: '2rem', backgroundColor: 'lightseagreen' }}>
-                    <label className="input-group-text" htmlFor="inputGroupSelect03">Currency</label>
-                </div> */}
-                {/* <select className="custom-select" id="inputGroupSelect03" onChange={(event) => setCurrency(event.target.value)}>
-                    <option defaultValue>Choose..</option>
-                    <option value="dollar" name="dollar">$ Dollar</option>
-                    <option value="pound" name="pound">£  Pound</option>
-                    <option value="euro" name="euro">€ Euro</option>
-                    <option value="ruppee" name="ruppee">₹ Ruppee</option>
-                </select> */}
+                  </select>               
                     <div style={{marginLeft:'2rem'}}>                       
                     <span>£</span>
                     <input
