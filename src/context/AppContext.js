@@ -24,12 +24,13 @@ export const AppReducer = (state, action) => {
                 return {
                     ...state,
                 };
-            } else {
+            }  else {
                 alert("Cannot increase the allocation! Out of funds");
                 return {
                     ...state
                 }
             }
+
             case 'RED_EXPENSE':
                 const red_expenses = state.expenses.map((currentExp)=> {
                     if (currentExp.name === action.payload.name && currentExp.cost - action.payload.cost >= 0) {
@@ -64,6 +65,7 @@ export const AppReducer = (state, action) => {
             return {
                 ...state,
             };
+            
         case 'CHG_CURRENCY':
             action.type = "DONE";
             state.currency = action.payload;
@@ -78,13 +80,14 @@ export const AppReducer = (state, action) => {
 
 // 1. Sets the initial state when the app loads
 const initialState = {
-    budget: 2000,
+    budget: 20000,
     expenses: [
         { id: "Marketing", name: 'Marketing', cost: 50 },
         { id: "Finance", name: 'Finance', cost: 300 },
         { id: "Sales", name: 'Sales', cost: 70 },
         { id: "Human Resource", name: 'Human Resource', cost: 40 },
         { id: "IT", name: 'IT', cost: 500 },
+        { id: "Admin", name: 'Admin', cost: 200 },
     ],
     currency: '£'
 };
