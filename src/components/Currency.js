@@ -1,37 +1,28 @@
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect} from 'react';
 import { AppContext } from '../context/AppContext'; 
 
 
-const Currency = (props) => {
+const Currency = () => {
     const {dispatch} = useContext(AppContext);
     const [currency, setCurrency] = useState(''); 
 
-    const customStyles = {
-        option: (base, { data, isDisabled, isFocused, isSelected }) => {
-        return {
-          ...base,
-          backgroundColor: isFocused ? "red" : "blue",
-        };
-      }
-    };
+    useEffect(() => {
+        //console.log(currency);
+        changeCurrency()   
+       // currency = {currency}
+      },[currency])
 
-    const styles = {
-        option: (styles, state) => ({
-          ...styles,
-          backgroundColor: state.isSelected ? "red" : "blue",
-          "&:hover": {
-            ...styles
-          }
-        })
+     const handleChange = (event) => {
+        setCurrency(event.target.value);
+        changeCurrency()
       };
     
-      const changeCurrency = (name) =>
-      {
-          dispatch({
-              type: 'CHG_CURRENCY',
-              payload: currency
-          })
+      const changeCurrency = () => {
+        dispatch({
+            type: 'CHG_CURRENCY',
+            payload: currency,
+        });
       }
   
 
@@ -41,12 +32,12 @@ const Currency = (props) => {
             <div>
                 <label style={{backgroundColor: '#32CD32'}} className="input-group-text" htmlFor="inputCurr">Currency</label>
             </div>
-            <select styles={styles}  id="inputCurr" onChange={(event) => changeCurrency(props.name)}>
-                <option value="dollar" name="dollar">$ Dollar</option>
-                <option value="pound" name="pound">£  Pound</option>
-                <option value="euro" name="euro">€ Euro</option>
-                <option value="ruppee" name="ruppee">₹ Ruppee</option>
-            </select> 
+            <select id="inputCurr" onChange={handleChange}>
+                <option value="$" name="dollar">$ Dollar</option>
+                <option value="£" name="pound">£  Pound</option>
+                <option value="€ " name="euro">€ Euro</option>
+                <option value="₹" name="ruppee">₹ Ruppee</option>
+            </select>
        </div> 
  
     );

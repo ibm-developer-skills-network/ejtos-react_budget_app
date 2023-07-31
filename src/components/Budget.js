@@ -3,14 +3,24 @@ import { AppContext } from '../context/AppContext';
 const Budget = () => {
    // const { budget } = useContext(AppContext);
     const [budget, setBudget] = useState(960);
-    const { expenses } = useContext(AppContext);
+    const { expenses, currency, dispatch} = useContext(AppContext);
     const budgetRef = useRef('');
     const totalExpenses = expenses.reduce((total, item) => {
         return (total = total + item.cost);
     }, 0);
+
     useEffect(() => {
         budgetRef.current = budget
+        //changeBudget()
     });
+
+    const changeBudget =(e) =>
+    {
+        dispatch({
+            type: 'SET_BUDGET',
+            payload: budget,
+        });
+    }
 
     const handleChange = (e) =>
     {
@@ -37,6 +47,8 @@ const Budget = () => {
             return;
        }
 
+       //changeBudget()
+        
 
       //  if(budget < expenses)
       //  {
@@ -52,13 +64,13 @@ const Budget = () => {
 
     return (
         <div className='alert alert-secondary'>
-            <span>Budget: £</span>
+            <span>Budget: {currency}</span>
             <input
                 required='required'
                 type='number'
                 id='budget'
                 value={budget}
-                style={{size: 10}}
+                style={{size: 10, width:100}}
                 onChange={handleChange}>
            </input>
         </div>
