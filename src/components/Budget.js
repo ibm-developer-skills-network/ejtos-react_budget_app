@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-    const { budget, expenses, dispatch } = useContext(AppContext);
+    const { budget, currency, expenses, dispatch } = useContext(AppContext);
 
 const handleBudgetChange = (event) => {
     const nowyBudget = parseInt(event.target.value, 10);
@@ -37,7 +37,9 @@ const handleBudgetChange = (event) => {
                 className = {budget > 20000 ? 'exceeded' : ''}
             />
             </span>
-        {budget > 20000 && <p className='alert-message'>Budget must be lower than 20 000.</p>}
+        {budget > 20000 && (
+        <p className='alert-message'>Budget must be lower than 20 000.</p>)}
+        <p>Currency: {currency}</p>
         </div>
     );
 };

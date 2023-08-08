@@ -76,11 +76,7 @@ export const AppReducer = (state, action) => {
 
         // Changing currencie context :)
 
-        case 'CHG_CURRENCY':
-            return{
-                ...state,
-            currency: action.payload,
-            };
+        
     }
 };
 
@@ -123,7 +119,8 @@ export const AppProvider = (props) => {
                 budget: state.budget,
                 remaining: remaining,
                 dispatch,
-                currency: state.currency
+                currency: state.currency,
+                availableCurrencies: state.availableCurrencies
             }}
         >
             {props.children}

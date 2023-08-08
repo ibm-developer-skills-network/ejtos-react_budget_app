@@ -48,11 +48,11 @@ const App = () => {
 
                 <h3 className='mt-3'>Allocation</h3>
                 {/* Add ExpenseList component here under */}
-                <div className='row'> 
+                 
                     <div className='col-sm'>
                         <ExpenseList />    
                     </div>        
-                </div>
+                
 
                 {/* Add ExpenseItem component here under }*/}
 
