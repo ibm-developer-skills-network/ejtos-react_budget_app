@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
-    const { budget, dispatch } = useContext(AppContext);
+    const { budget, expenses, dispatch } = useContext(AppContext);
 
 const handleBudgetChange = (event) => {
     const nowyBudget = parseInt(event.target.value, 10);
@@ -10,7 +10,19 @@ const handleBudgetChange = (event) => {
 
     dispatch ({ type: 'SET_BUDGET', payload: nowyBudget});
     }
+    else if (nowyBudget > 20000) {
+        alert('Budget cannot be higher than 20 000');
+    }
     
+    //checking spendings
+    const spendings = expenses.reduce((total, expense) => total + expense.cost, 0);
+    
+    if (nowyBudget >= spendings){
+        dispatch({type: 'SET_BUDGET', payload: nowyBudget});
+    }
+    else {
+        alert('Budget cannot be lower than present spendings :(')
+    }
 };
     return (
         <div className='alert alert-secondary'>
