@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.exceeded {
+    border-color: red;
+  }
+  
+  .alarm-message {
+    color: red;
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+  

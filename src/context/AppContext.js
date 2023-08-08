@@ -73,6 +73,10 @@ export const AppReducer = (state, action) => {
 
         default:
             return state;
+
+        // Changing currencie context :)
+
+        
     }
 };
 
@@ -86,7 +90,9 @@ const initialState = {
         { id: "Human Resource", name: 'Human Resource', cost: 40 },
         { id: "IT", name: 'IT', cost: 500 },
     ],
-    currency: '£'
+    currency: '£',
+    // Adding other available currencies:
+    availableCurrencies: ['£ Pound', '$ Dollar', '€ Euro', '₹ Ruppee'],
 };
 
 // 2. Creates the context this is the thing our components import and use to get the state
@@ -113,10 +119,13 @@ export const AppProvider = (props) => {
                 budget: state.budget,
                 remaining: remaining,
                 dispatch,
-                currency: state.currency
+                currency: state.currency,
+                availableCurrencies: state.availableCurrencies
             }}
         >
             {props.children}
         </AppContext.Provider>
     );
 };
+
+
