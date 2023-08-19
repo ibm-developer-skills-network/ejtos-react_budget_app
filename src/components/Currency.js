@@ -4,7 +4,6 @@ import { Dropdown } from "bootstrap";
 
 const Currency = () => {
     
-    //return (
         const { currency, dispatch } = useContext(AppContext);
 
         const currencyList = [
@@ -34,17 +33,5 @@ const Currency = () => {
             </div>
     
         );
-
-        //<div class="dropdown">
-        //<button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Currency
-        //<span class="caret"></span></button>
-        //<ul class="dropdown-menu"  style = {{background: "#93e499"}}>
-        //  <li><a href="#">$ Dollar</a></li>
-        //  <li><a href="#">£ Pound</a></li>
-        //  <li><a href="#">€ Euro</a></li>
-        //  <li><a href="#">₹ Rupee</a></li>
-        //</ul>
-      //</div>
-    //);
-};
+    };
 export default Currency;
