@@ -12,15 +12,22 @@ const Budget = () => {
             alert("You cannot reduce budget value lower than spending");
     }
    }
+           
     return (
         <div className='alert alert-secondary'>
-            Budget: £
+            Budget:
+            <div className="input-group-prepend" 
+                style={{ height:'5px', width: '10px', marginRight: '1rem', marginLeft: '1rem' }}>
+            <span className="input-group-text">£</span>
+            </div>
             <input
                         required='required'
                         type='number'
                         id='budget'
+                        max='20000'
+                        step='10'
   //                      value={5000}
-                        style={{ marginLeft: '0rem' , size: 10}}
+                        style={{ marginTop: '-30px', marginLeft: '5rem' , size: 15}}
   //                    onChange={(event) => setCost(event.target.value)}>
                         onChange={handleChange}  
                         />

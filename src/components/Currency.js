@@ -11,10 +11,9 @@ const Location = () => {
             })
     }
     
-
   return (
         <div className='alert alert-success'> Currency {
-      <select name="Location" id="Location" onChange={event=>changeLocation(event.target.value)}>
+      <select style={{ backgroundColor: 'lightgreen', color: 'white' }}>name="Location" id="Location" onChange={event=>changeLocation(event.target.value)}>
         <option value="$"> $ Dollar </option>
         <option value="£"> £ Pound </option>
         <option value="€"> € Euro </option>
