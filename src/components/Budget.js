@@ -19,8 +19,8 @@ const Budget = () => {
     console.log("Currency value:", currency);
     return (
         <div className='alert alert-secondary'>
-            <span>Budget: {currency}</span> {/* Corrected line */}
-            <input type="number" max="20000" value={budget} onChange={(e)=>{updateBudget(e.target.value)}}></input>
+            <span>Budget: {currency}</span>
+            <input type="number" max="20000" step="10" value={budget} onChange={(e)=>{updateBudget(e.target.value)}}></input>
         </div>
     )
 };
