@@ -1,0 +1,27 @@
+.plus-button {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: rgb(29, 212, 29); 
+    color: white; 
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 5px;
+}
+
+.minus-button {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: red; 
+    color: white; 
+    border: none;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 5px;
+}

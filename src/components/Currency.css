@@ -1,0 +1,33 @@
+.currency-dropdown {
+    position: relative;
+    display: inline-block;
+    background-color: rgb(177, 236, 187);
+    color: #333;
+}
+
+.currency-dropdown select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    border: none;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.currency-dropdown::after {
+    content: '\25BE'; 
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 12px;
+    pointer-events: none;
+}
+
+.currency-dropdown select option {
+    background-color: rgb(177, 236, 187);
+    color: #333;
+    font-size: 16px;
+}
