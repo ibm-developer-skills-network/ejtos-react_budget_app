@@ -1,39 +1,65 @@
 import * as React from 'react';
 
-import './Currency.css';
-
+import '../context/Currency.css';
 const Currency = () => {
-  const [open, setOpen] = React.useState(false);
+    const handleMenuOne = () => {
+      console.log('clicked one');
+    };
+  
+    const handleMenuTwo = () => {
+      console.log('clicked two');
+    };
 
-  const handleOpen = () => {
-    setOpen(!open);
+    const handleMenuThree = () => {
+        console.log('clicked two');
+      };
+  
+      const handleMenuFour = () => {
+        console.log('clicked two');
+      };
+     
+    return (
+      <Dropdown
+        trigger={<button>Currency</button>}
+        menu={[
+          <button onClick={handleMenuOne}>$ Dollar</button>,
+          <button onClick={handleMenuTwo}>£ Pound</button>,
+          <button onClick={handleMenuThree}>€ Euro</button>,
+          <button onClick={handleMenuFour}>₹ Rupee</button>,
+        ]}
+      />
+    );
+  };
+  
+  const Dropdown = ({ trigger, menu }) => {
+    const [open, setOpen] = React.useState(false);
+  
+    const handleOpen = () => {
+      setOpen(!open);
+    };
+  
+    return (
+      <div className="dropdown">
+        {React.cloneElement(trigger, {
+          onClick: handleOpen,
+        })}
+        {open ? (
+          <ul className="menu">
+            {menu.map((menuItem, index) => (
+              <li key={index} className="menu-item">
+                {React.cloneElement(menuItem, {
+                  onClick: () => {
+                    menuItem.props.onClick();
+                    setOpen(false);
+                  },
+                })}
+              </li>
+            ))}
+          </ul>
+        ) : null}
+      </div>
+    );
   };
 
-  const handleMenuOne = () => {
-    // do something
-    setOpen(false);
-  };
-
-  const handleMenuTwo = () => {
-    // do something
-    setOpen(false);
-  };
-
-  return (
-    <div className="dropdown">
-      <button onClick={handleOpen}>Dropdown</button>
-      {open ? (
-        <ul className="menu">
-          <li className="menu-item">
-            <button onClick={handleMenuOne}>Menu 1</button>
-          </li>
-          <li className="menu-item">
-            <button onClick={handleMenuTwo}>Menu 2</button>
-          </li>
-        </ul>
-      ) : null}
-    </div>
-  );
-};
 
 export default Currency;
