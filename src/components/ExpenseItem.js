@@ -1,18 +1,40 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import { FaTimesCircle } from 'react-icons/fa';
+import { BsFillArrowUpSquareFill } from 'react-icons/bs';
+import { BsFillArrowDownSquareFill } from 'react-icons/bs';
 
 const ExpenseItem = (props) => {
-    const { dispatch, Location} = useContext(AppContext);
+    const { dispatch, currency} = useContext(AppContext);
 
     const handleDeleteItem = () => {
-        const item = {
-            name: props.name,
+        dispatch({
+            type: 'DELETE_EXPENSE',
+            payload: props.id,
+        });
+    };
+   
+    const increaseAllocation = (name) => {
+        const expense = {
+            name: name,
+            cost: 10
         };
 
         dispatch({
-            type: 'DELETE_ITEM',
-            payload: item,
+            type: 'ADD_EXPENSE',
+            payload: expense,
+        });
+    };
+
+    const decreaseAllocation = (name) => {
+        const expense = {
+            name: name,
+            cost: -10
+        };
+
+        dispatch({
+            type: 'ADD_EXPENSE',
+            payload: expense,
         });
     };
 
@@ -20,9 +42,9 @@ const ExpenseItem = (props) => {
     return (
         <tr>
         <td>{props.name}</td>
-        <td>{props.quantity}</td>
-        <td>{Location}{parseInt(props.unitprice)}</td>
-        <td>{Location}{parseInt(props.quantity)*parseInt(props.unitprice)}</td>
+        <td>{currency}{props.cost}</td>
+        <td><BsFillArrowUpSquareFill className="increment-btn" onClick={event=> increaseAllocation(props.name)}></BsFillArrowUpSquareFill></td>
+        <td><BsFillArrowDownSquareFill className="decrement-btn" onClick={event=> decreaseAllocation(props.name)}></BsFillArrowDownSquareFill></td>
         <td><FaTimesCircle size='2.2em' color="red" onClick={handleDeleteItem}></FaTimesCircle></td>
         </tr>
     );
