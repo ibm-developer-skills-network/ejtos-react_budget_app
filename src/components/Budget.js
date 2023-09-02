@@ -15,7 +15,7 @@ const Budget = () => {
         }
 
         if(value < totalExpenses) {
-            alert("Budget cannot be reduced below the current expenditure.")
+            alert(`Budget cannot be reduced below the current expenditure of ${currency}${totalExpenses}.`)
             budget = totalExpenses;
         }
 

@@ -1,0 +1,11 @@
+.custom-dropdown-toggle {
+    background-color: #d4edda; /* Replace with your custom color code */
+    border-color: #d4edda; /* Replace with your custom color code */
+    color: #ffffff; /* Replace with your desired text color */
+  }
+  
+  .custom-dropdown-toggle:hover,
+  .custom-dropdown-toggle:focus {
+    background-color: #d4edda; /* Replace with your custom color code for hover/focus state */
+    border-color: #d4edda; /* Replace with your custom color code for hover/focus state */
+  }
