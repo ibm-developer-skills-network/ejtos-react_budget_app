@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 import { FaTimesCircle } from 'react-icons/fa';
-import { BsFillArrowUpSquareFill } from 'react-icons/bs';
-import { BsFillArrowDownSquareFill } from 'react-icons/bs';
+import { BsFillPlusCircleFill } from 'react-icons/bs';
+import { BsFillDashCircleFill } from 'react-icons/bs';
 
 const ExpenseItem = (props) => {
     const { dispatch, currency} = useContext(AppContext);
@@ -43,9 +43,9 @@ const ExpenseItem = (props) => {
         <tr>
         <td>{props.name}</td>
         <td>{currency}{props.cost}</td>
-        <td><BsFillArrowUpSquareFill className="increment-btn" onClick={event=> increaseAllocation(props.name)}></BsFillArrowUpSquareFill></td>
-        <td><BsFillArrowDownSquareFill className="decrement-btn" onClick={event=> decreaseAllocation(props.name)}></BsFillArrowDownSquareFill></td>
-        <td><FaTimesCircle size='2.2em' color="red" onClick={handleDeleteItem}></FaTimesCircle></td>
+        <td><BsFillPlusCircleFill size='2.2em' className="increment-btn text-success" onClick={event=> increaseAllocation(props.name)}></BsFillPlusCircleFill></td>
+        <td><BsFillDashCircleFill size='2.2em' className="decrement-btn text-danger" onClick={event=> decreaseAllocation(props.name)}></BsFillDashCircleFill></td>
+        <td><FaTimesCircle size='1.2em' color="grey" onClick={handleDeleteItem}></FaTimesCircle></td>
         </tr>
     );
 };

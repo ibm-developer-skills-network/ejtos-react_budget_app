@@ -16,7 +16,7 @@ const Budget = () => {
 
         if(value < totalExpenses) {
             alert("Budget cannot be reduced below the current expenditure.")
-            budget = 0;
+            budget = totalExpenses;
         }
 
         dispatch({
@@ -28,8 +28,8 @@ const Budget = () => {
     return (
         <div className='alert alert-secondary'>
             <span>Budget: {currency}</span>
-            <input type="number" class="form-control" id="amountInput" 
-                step="10" id="budget" onChange={(event)=>setBudget(event.target.valueAsNumber)}
+            <input type="number" class="w-50" id="amountInput" 
+                step="10" id="budget fit" onChange={(event)=>setBudget(event.target.valueAsNumber)}
                 value={budget}>
             </input>
         </div>
