@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+.input-2::before {
+    position:absolute;
+    content:"$";
+    left:5px;
+    top:2px;
+}
