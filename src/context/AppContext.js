@@ -24,7 +24,8 @@ export const AppReducer = (state, action) => {
                 return {
                     ...state,
                 };
-            } else {
+            } 
+             else {
                 alert("Cannot increase the allocation! Out of funds");
                 return {
                     ...state
