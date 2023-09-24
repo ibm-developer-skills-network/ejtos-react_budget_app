@@ -30,7 +30,7 @@ const Budget = () => {
 
   return (
     <div className="alert alert-secondary">
-      <span>Budget:  £</span>
+      <span>Budget: $</span>
       <input
         type="number"
         step="10"

@@ -1,4 +1,3 @@
-// Currency.js
 import React, { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 import "./Currency.css"; // Import a custom CSS file for styling
