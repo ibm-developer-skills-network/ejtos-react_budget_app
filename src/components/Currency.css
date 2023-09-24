@@ -1,0 +1,16 @@
+/* Currency.css */
+.currency-dropdown select {
+    background-color: limegreen;
+    color: white;
+}
+
+.currency-dropdown select:hover {
+    background-color: white;
+    color: black;
+}
+
+.selected-currency {
+    margin-top: 8px;
+    color: limegreen;
+    font-weight: bold;
+}
