@@ -1,0 +1,16 @@
+/* Currency.css */
+
+.custom-dropdown {
+    background-color: green;
+    color: white; /* Text color */
+}
+
+.custom-dropdown option {
+    background-color: green; /* Background color of dropdown options */
+    color: white; /* Text color of dropdown options */
+}
+
+.custom-dropdown:hover {
+    background-color: rgb(175, 22, 22); /* Change background color on hover */
+    color: green; /* Change text color on hover */
+}
