@@ -25,7 +25,7 @@ export const AppReducer = (state, action) => {
                     ...state,
                 };
             } else {
-                alert("Cannot increase the allocation! Out of funds");
+                alert("Sad, but you cannot reduce the budget value lower than the spending");
                 return {
                     ...state
                 }
