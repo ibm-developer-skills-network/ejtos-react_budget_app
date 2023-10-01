@@ -25,7 +25,7 @@ const App = () => {
                                 <Budget />
                                 </div>
                         }        
-
+            
                         {
                             //Remaining component
                             <div className='col-sm'>
@@ -39,7 +39,10 @@ const App = () => {
                                 <ExpenseTotal />
                                 </div>
                         }        
-                       
+                        </div>
+            <div className='container'>
+                <h3 className='mt-3'>Allocation</h3>
+                    <div className='row mt-3'></div>                       
                         {
                             //ExpenseList component
                             <div className='col-sm'>
@@ -52,8 +55,11 @@ const App = () => {
                             <div className='col-sm'>
                                 <ExpenseItem />
                                 </div>
-                        }        
-
+                        }     
+                        </div>   
+            <div className='container'>
+                <h3 className='mt-3'>Change allocation</h3>
+                    <div className='row mt-3'></div>
                         {
                             //AllocationForm component
                              <div className='col-sm'>
