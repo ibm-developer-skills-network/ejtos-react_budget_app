@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
-
+import Budget from './Budget';
 const AllocationForm = (props) => {
     const { dispatch,remaining  } = useContext(AppContext);
-
+    const [currency, setCurrency] = useState('');
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
-
+    const prefix = '$'
+    const ab={currency}
     const submitEvent = () => {
 
             if(cost > remaining) {
@@ -33,6 +34,9 @@ const AllocationForm = (props) => {
             }
     };
 
+
+
+    
     return (
         <div>
             <div className='row'>
@@ -59,15 +63,40 @@ const AllocationForm = (props) => {
                 <option value="Reduce" name="Reduce">Reduce</option>
                   </select>
 
-                    <input
+                  <div className="input-group-prepend"  style={{ marginLeft: '2rem' }}>
+                <label className="input-group-text" htmlFor="inputGroupSelect01">Currency</label>
+                  </div>
+                  <select className="custom-select" id="inputGroupSelect01" onChange={(event) => setCurrency(event.target.value)}>
+                        <option defaultValue>Choose...</option>
+                        <option value="$" name="dollar"> $ Dollar</option>
+                <option value="&pound;" name="pound">&pound; Pound</option>
+                <option value="&euro;" name="euro">&euro; Euro</option>
+                <option value="&#8377;" name="rupee">&#8377; Rupee</option>
+                </select>
+
+
+
+
+
+
+
+
+
+
+
+                <div className="input-group-prepend" style={{ marginLeft: '2rem' , size: 10}} >
+                <label className="input-group-text" htmlFor="inputGroupSelect01">{currency}</label>
+                  </div>
+                   <input
                         required='required'
                         type='number'
                         id='cost'
-                        value={cost}
-                        style={{ marginLeft: '2rem' , size: 10}}
+                        prefix ={currency}
+                        value= {cost}
+                        style={{ marginLeft: '0rem' , size: 10}}
                         onChange={(event) => setCost(event.target.value)}>
                         </input>
-
+                        <budget ab={ab} />
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
                     </button>
