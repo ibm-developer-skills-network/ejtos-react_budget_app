@@ -13,7 +13,15 @@ import ExpenseItem from './components/ExpenseItem';
 import AllocationForm from './components/AllocationForm';
 
 import { AppProvider } from './context/AppContext';
+import { useState } from 'react';
 const App = () => {
+    const [curr, setCurr] = useState('$');
+    const handlecurrency= num => {
+    
+        //curr=num;
+        setCurr(num);
+        console.log('argument from Child: ', num);
+    }
     return (
         <AppProvider>
             <div className='container'>
@@ -23,7 +31,7 @@ const App = () => {
                             /* Add Budget component here */
                                         // Budget component
                     <div className='col-sm'>
-                    <Budget />
+                    <Budget currpfx={curr} />
                 </div>
                         }        
 
@@ -31,7 +39,7 @@ const App = () => {
                             /* Add Remaining component here*/
                                          //Remaining component
                     <div className='col-sm'>
-                    <Remaining />
+                    <Remaining currpfx={curr} />
                 </div>
                         }        
 
@@ -39,28 +47,28 @@ const App = () => {
                             /* Add ExpenseTotal component here */
                                          //ExpenseTotal component
                     <div className='col-sm'>
-                    <ExpenseTotal />
+                    <ExpenseTotal currpfx={curr} />
                 </div>
                         }        
                        
                         {
                             /* Add ExpenseList component here */
                             <div className='col-sm'>
-                            <ExpenseList />
+                            <ExpenseList currpfx={curr} />
                         </div>
                         }         
 
                         {
                             /* Add ExpenseItem component here */
                             <div className='col-sm'>
-                            <ExpenseItem />
+                            <ExpenseItem currpfx={curr} />
                         </div>
                         }        
 
                         {
                             /* Add AllocationForm component here under */
                             <div className='col-sm'>
-                            <AllocationForm />
+                            <AllocationForm currpfx={curr} oncurrencychange={handlecurrency} />
                         </div>
     
                         }        
