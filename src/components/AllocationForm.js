@@ -67,6 +67,12 @@ const AllocationForm = (props) => {
                         style={{ marginLeft: '2rem' , size: 10}}
                         onChange={(event) => setCost(event.target.value)}>
                         </input>
+                        <select className="custom-select">
+                            <option value="$" name="$">$</option>
+                            <option value=" €" name=" €"> €</option>
+                            <option value="₹" name="₹">₹</option>
+                            <option value=" £" name=" £"> £</option>
+                        </select>
 
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
