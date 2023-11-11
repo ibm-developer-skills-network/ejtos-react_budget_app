@@ -7,9 +7,6 @@ const Budget = () => {
   const onChangeBudgetHandler = (event) => {
     const enteredValue = Number(event.target.value);
 
-    console.log(enteredValue);
-    console.log(totalExpenses);
-
     if (Number.isNaN(enteredValue) || !Number.isInteger(enteredValue)) {
       alert("Please enter a valid integer number.");
       return;
