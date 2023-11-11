@@ -7,6 +7,9 @@ const Budget = () => {
   const onChangeBudgetHandler = (event) => {
     const enteredValue = Number(event.target.value);
 
+    console.log(enteredValue);
+    console.log(totalExpenses);
+
     if (Number.isNaN(enteredValue) || !Number.isInteger(enteredValue)) {
       alert("Please enter a valid integer number.");
       return;
@@ -14,7 +17,7 @@ const Budget = () => {
 
     if (enteredValue < totalExpenses) {
       alert(
-        "The value of the buget can't be lower than the expenses value " +
+        "The value of the budget can't be lower than the expenses value " +
           currency +
           totalExpenses
       );
