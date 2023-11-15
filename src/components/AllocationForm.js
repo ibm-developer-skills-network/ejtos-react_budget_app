@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
+import HandleCurrencyChange from './currencyComponent.js'
 
 const AllocationForm = (props) => {
-    const { dispatch,remaining  } = useContext(AppContext);
+    const { dispatch,remaining, currency  } = useContext(AppContext);
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
@@ -67,7 +68,7 @@ const AllocationForm = (props) => {
                         style={{ marginLeft: '2rem' , size: 10}}
                         onChange={(event) => setCost(event.target.value)}>
                         </input>
-                        <select className="custom-select">
+                        <select className="custom-select" value={currency} onChange={(event) => HandleCurrencyChange(event, dispatch)}>
                             <option value="$" name="$">$</option>
                             <option value=" €" name=" €"> €</option>
                             <option value="₹" name="₹">₹</option>
