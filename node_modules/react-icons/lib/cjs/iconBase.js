@@ -26,9 +26,13 @@ exports.IconBase = exports.GenIcon = void 0;
 var React = require("react");
 var iconContext_1 = require("./iconContext");
 function Tree2Element(tree) {
-    return tree && tree.map(function (node, i) { return React.createElement(node.tag, __assign({ key: i }, node.attr), Tree2Element(node.child)); });
+    return (tree &&
+        tree.map(function (node, i) {
+            return React.createElement(node.tag, __assign({ key: i }, node.attr), Tree2Element(node.child));
+        }));
 }
 function GenIcon(data) {
+    // eslint-disable-next-line react/display-name
     return function (props) { return (React.createElement(IconBase, __assign({ attr: __assign({}, data.attr) }, props), Tree2Element(data.child))); };
 }
 exports.GenIcon = GenIcon;
@@ -40,13 +44,11 @@ function IconBase(props) {
         if (conf.className)
             className = conf.className;
         if (props.className)
-            className = (className ? className + ' ' : '') + props.className;
+            className = (className ? className + " " : "") + props.className;
         return (React.createElement("svg", __assign({ stroke: "currentColor", fill: "currentColor", strokeWidth: "0" }, conf.attr, attr, svgProps, { className: className, style: __assign(__assign({ color: props.color || conf.color }, conf.style), props.style), height: computedSize, width: computedSize, xmlns: "http://www.w3.org/2000/svg" }),
             title && React.createElement("title", null, title),
             props.children));
     };
-    return iconContext_1.IconContext !== undefined
-        ? React.createElement(iconContext_1.IconContext.Consumer, null, function (conf) { return elem(conf); })
-        : elem(iconContext_1.DefaultContext);
+    return iconContext_1.IconContext !== undefined ? (React.createElement(iconContext_1.IconContext.Consumer, null, function (conf) { return elem(conf); })) : (elem(iconContext_1.DefaultContext));
 }
 exports.IconBase = IconBase;
