@@ -12,4 +12,3 @@ const ExpenseTotal = () => {
     );
 };
 export default ExpenseTotal;
-
