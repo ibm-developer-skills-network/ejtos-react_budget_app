@@ -1,0 +1,23 @@
+.btn-primary {
+    background-color: blue;
+  }
+
+  .currency-dropdown option:hover {
+    background-color: rgb(147, 228, 153);
+    color: black;
+  }
+
+  .currency-dropdown option:checked {
+    background-color: white;
+    color: black;
+  }
+
+  .alert.alert-tertiary {
+    background-color: rgb(147, 228, 153);
+    color: white;
+    border: none;
+  }
+
+  option:hover {
+    background-color: white;
+  }
