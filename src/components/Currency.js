@@ -14,38 +14,19 @@ const Currency = () => {
       });
   }
 
-return (<div
-    style={{
-      backgroundColor: 'lightgreen',
-      padding:'0.5rem',
-      marginleft: '2rem',
-      className:'alert alert-primary',
-    }}
-  >
-    <div>
-    <label htmlFor="inputcurrency01">Currency ({selectedCurrency})</label>
-    <select
-      className="custom-select"
-      id="inputcurrency01"
-      value={selectedCurrency}
-      onChange={handleCurrencyChange}
-    >
-      <option defaultValue>Select Currency</option>
-      <option value="$" name="dollar">
-        Dollar $
-      </option>
-      <option value="£" name="pounds">
-        Pounds £
-      </option>
-      <option value="€" name="euro">
-        Euro €
-      </option>
-      <option value="₹" name="ruppee">
-        Ruppee ₹
-      </option>
-    </select>
-  </div>
-  </div>
+return (	
+
+<div className='alert alert-secondary' >
+        <label style={{marginLeft: '1rem' , backgroundColor:'#33FF49', color:'white'}} >Currency
+      <select name='hover_color'id="currency" onChange={handleCurrencyChange} style={{ marginLeft: '1rem' , backgroundColor:'#33FF49', color:'white'}}>
+        <option style={{color:'black'}} value="£">£ Pound</option>
+        <option style={{color:'black'}} value="$">$ Dollar</option>
+        <option style={{color:'black'}} value="€">€ Euro</option>
+        <option style={{color:'black'}} value="₹">₹ Rupee</option>
+      </select>	
+      </label>
+      	
+    </div>
 
 )
 };
