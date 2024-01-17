@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+.b{
+  width: 40px; /* Set the width and height to create a circular shape */
+  height: 40px;
+  border-radius: 50%; /* Make the container circular */
+  background-color: green; /* Set the background color as per your design */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
