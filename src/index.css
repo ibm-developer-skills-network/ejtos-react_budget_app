@@ -11,3 +11,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.b{
+  width: 40px; /* Set the width and height to create a circular shape */
+  height: 40px;
+  border-radius: 50%; /* Make the container circular */
+  background-color: rgb(6, 132, 6); /* Set the background color as per your design */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  
+}
+.d{
+  width: 40px; /* Set the width and height to create a circular shape */
+  height: 40px;
+  border-radius: 50%; /* Make the container circular */
+  background-color: rgb(241, 19, 19); /* Set the background color as per your design */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  
+}
+.bt{
+  display: inline-block;
+  padding: 10px 20px; /* Adjust padding as needed */
+  font-size: 16px;   /* Set the font size */
+    /* Set the font weight */
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+ /* Set the border color */
+ border: 2px solid #badbcc;
+  border-radius: 5px;       /* Set the border radius for rounded corners */          /* Set the text color */
+  background-color:#d1e7dd;;
+}
