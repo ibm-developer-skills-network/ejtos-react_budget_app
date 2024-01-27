@@ -11,3 +11,58 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.custom-left {
+  margin-left: 1rem;
+}
+
+.custom-right {
+  margin-right: 2rem;
+}
+
+.plus-button, .minus-button {
+  font-weight: bolder;
+  font-size: 1.5em;
+  color: white;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1em;
+  height: 1.1em;
+  line-height: 1;
+  vertical-align: middle;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.plus-button::after, .minus-button::after {
+                    /* Use a pseudo-element for the "+" symbol */
+  position: absolute;              /* Position absolutely within the button */
+  top: 42%;                        /* Align top edge to center vertically */
+  left: 50%;                       /* Align left edge to center horizontally */
+  transform: translate(-50%, -50%); /* Offset by half the width and height to center */
+  font-size: 1em;                  /* Size of the "+" */
+}
+
+.plus-button {
+  background-color: green;
+}
+
+.minus-button {
+  background-color: red;
+}
+
+.plus-button::after {
+  content: "+";
+  background-color: green;
+}
+
+.minus-button::after {
+  content: "-";
+  background-color: red;
+}

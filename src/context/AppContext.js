@@ -5,16 +5,16 @@ export const AppReducer = (state, action) => {
     let budget = 0;
     switch (action.type) {
         case 'ADD_EXPENSE':
-            let total_budget = 0;
-            total_budget = state.expenses.reduce(
+            let total_budget_add = 0;
+            total_budget_add = state.expenses.reduce(
                 (previousExp, currentExp) => {
                     return previousExp + currentExp.cost
                 },0
             );
-            total_budget = total_budget + action.payload.cost;
+            total_budget_add = total_budget_add + action.payload.cost;
             action.type = "DONE";
-            if(total_budget <= state.budget) {
-                total_budget = 0;
+            if(total_budget_add <= state.budget) {
+                total_budget_add = 0;
                 state.expenses.map((currentExp)=> {
                     if(currentExp.name === action.payload.name) {
                         currentExp.cost = action.payload.cost + currentExp.cost;
@@ -30,20 +30,46 @@ export const AppReducer = (state, action) => {
                     ...state
                 }
             }
-            case 'RED_EXPENSE':
-                const red_expenses = state.expenses.map((currentExp)=> {
-                    if (currentExp.name === action.payload.name && currentExp.cost - action.payload.cost >= 0) {
-                        currentExp.cost =  currentExp.cost - action.payload.cost;
-                        budget = state.budget + action.payload.cost
-                    }
-                    return currentExp
-                })
-                action.type = "DONE";
+        case 'DECREASE_EXPENSE':
+            let total_budget_subtract = 0;
+            total_budget_subtract = state.expenses.reduce(
+                (previousExp, currentExp) => {
+                    return previousExp + currentExp.cost
+                },0
+            );
+            total_budget_subtract = total_budget_subtract - action.payload.cost;
+            action.type = "DONE";
+            if(total_budget_subtract <= 0) {
+                alert("item is already zero!");
                 return {
-                    ...state,
-                    expenses: [...red_expenses],
-                };
-            case 'DELETE_EXPENSE':
+                    ...state
+                }
+            }
+
+            state.expenses.map((currentExp) => {
+                if (currentExp.name == action.payload.name) {
+                    currentExp.cost = currentExp.cost - action.payload.cost;
+                }
+                return currentExp;
+            });
+            
+            return {
+                ...state
+            }
+        case 'RED_EXPENSE':
+            const red_expenses = state.expenses.map((currentExp)=> {
+                if (currentExp.name === action.payload.name && currentExp.cost - action.payload.cost >= 0) {
+                    currentExp.cost =  currentExp.cost - action.payload.cost;
+                    budget = state.budget + action.payload.cost
+                }
+                return currentExp
+            })
+            action.type = "DONE";
+            return {
+                ...state,
+                expenses: [...red_expenses],
+            };
+        case 'DELETE_EXPENSE':
             action.type = "DONE";
             state.expenses.map((currentExp)=> {
                 if (currentExp.name === action.payload) {
@@ -70,7 +96,6 @@ export const AppReducer = (state, action) => {
             return {
                 ...state
             }
-
         default:
             return state;
     }
@@ -78,6 +103,7 @@ export const AppReducer = (state, action) => {
 
 // 1. Sets the initial state when the app loads
 const initialState = {
+    maxBudget: 20000,
     budget: 2000,
     expenses: [
         { id: "Marketing", name: 'Marketing', cost: 50 },
@@ -86,7 +112,7 @@ const initialState = {
         { id: "Human Resource", name: 'Human Resource', cost: 40 },
         { id: "IT", name: 'IT', cost: 500 },
     ],
-    currency: '£'
+    currency: "$ Dollar"
 };
 
 // 2. Creates the context this is the thing our components import and use to get the state
@@ -110,6 +136,7 @@ export const AppProvider = (props) => {
         <AppContext.Provider
             value={{
                 expenses: state.expenses,
+                maxBudget: state.maxBudget,
                 budget: state.budget,
                 remaining: remaining,
                 dispatch,
