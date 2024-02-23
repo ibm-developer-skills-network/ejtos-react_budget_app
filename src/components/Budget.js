@@ -1,19 +1,21 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AppContext } from "../context/AppContext";
 
 const Budget = () => {
-  const { budget } = useContext(AppContext);
-  const [newBudget, setNewBudget] = useState(budget);
+  const { currency, budget, dispatch } = useContext(AppContext);
 
   const handleBudgetChange = (e) => {
-    setNewBudget(e.target.value);
+    dispatch({
+      type: "SET_BUDGET",
+      payload: e.target.value,
+    });
   };
 
   return (
     <div className="alert alert-secondary">
       <div class="form-group row">
         <label for="budget" class="col-sm-4 col-form-label">
-          Budget: £{budget}
+          Budget: {currency} {budget}
         </label>
         <div class="col-sm-8">
           <input
@@ -21,7 +23,7 @@ const Budget = () => {
             class="form-control"
             step="10"
             id="budget"
-            value={newBudget}
+            value={budget}
             onChange={handleBudgetChange}
           />
         </div>
