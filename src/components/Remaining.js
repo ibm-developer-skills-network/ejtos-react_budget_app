@@ -11,7 +11,8 @@ const Remaining = () => {
   return (
     <div className={`alert ${alertType} text-center`}>
       <span>
-        Remaining: {currency} {budget - totalExpenses}
+        Remaining: {currency}
+        {budget - totalExpenses}
       </span>
     </div>
   );
