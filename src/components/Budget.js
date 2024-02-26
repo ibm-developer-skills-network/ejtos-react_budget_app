@@ -8,7 +8,7 @@ const Budget = () => {
         console.log(setNewBudget);
     }
     return (
-<div className='alert alert-secondary'>
+<div className='alert alert-secondary'> 
 <span>Budget: £{budget}</span>
 <input type='number' step='10' value={newBudget} onChange={handleBudgetChange}></input>
 </div>
