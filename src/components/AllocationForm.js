@@ -38,12 +38,11 @@ const AllocationForm = (props) => {
 
     return (
         <div>
-            <div className='row'>
-                <div className='input-group-mb-3'>
-
-                    <div className='input-group-prepend' style={{ marginLeft: '2rem' }}>
-                        <label className='input-group-text my-2' htmlFor='inputGroupSelect01'>Department</label>
-                        <select className="custom-select" id="inputGroupSelect01" onChange={(event) => setName(event.target.value)}>
+            <div className='input-group-mb-3 row'>
+                <div className='input-group-prepend col-sm' style={{ marginLeft: '2rem' }}>
+                    <div className='row'>
+                        <label className='input-group-text col-sm my-2' htmlFor='inputGroupSelect01'>Department</label>
+                        <select className="custom-select col-sm my-2" id="inputGroupSelect01" onChange={(event) => setName(event.target.value)}>
                             <option defaultValue>Choose...</option>
                             <option value="Marketing" name="marketing"> Marketing</option>
                             <option value="Sales" name="sales">Sales</option>
@@ -53,29 +52,36 @@ const AllocationForm = (props) => {
                             <option value="Admin" name="admin">Admin</option>
                         </select>
                     </div>
+                </div>
 
-                    <div className="input-group-prepend" style={{ marginLeft: '2rem' }}>
-                        <label className="input-group-text my-2" htmlFor="inputGroupSelect02">Allocation</label>
-                        <select className="custom-select" id="inputGroupSelect02" onChange={(event) => setAction(event.target.value)}>
+                <div className="input-group-prepend col-sm  my-2 mx-5" style={{ marginLeft: '2rem' }}>
+                    <div className='row'>
+                        <label className="input-group-text col-sm" htmlFor="inputGroupSelect02">Allocation</label>
+                        <select className="custom-select col-sm" id="inputGroupSelect02" onChange={(event) => setAction(event.target.value)}>
                             <option defaultValue value="Add" name="Add">Add</option>
                             <option value="Reduce" name="Reduce">Reduce</option>
                         </select>
+                    </div>
+                </div>
 
+                <div className='col-sm my-2'>
+                    <div className='row'>
+                        {"£"}
                         <input
+                            className='col-sm'
                             required='required'
                             type='number'
                             id='cost'
                             value={cost}
-                            style={{ marginLeft: '2rem' , size: 10}}
+                            style={{ size: 10}}
                             onChange={(event) => setCost(event.target.value)}>
                         </input>
                     </div>
- 
-
-                    <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
-                        Save
-                    </button>
                 </div>
+                
+                <button className="btn btn-primary col-sm my-2 mx-5" onClick={submitEvent}>
+                    Save
+                </button>
             </div>
         </div>
     );
