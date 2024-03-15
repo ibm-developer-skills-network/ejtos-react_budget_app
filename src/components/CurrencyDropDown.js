@@ -11,20 +11,21 @@ const CurrencyDropDown = ({ onCurrencyChange }) => {
   };
 
   return (
-    <label className='rounded bg-success p-2'>
-      <span className='text-white font-weight-bold'>Currency: </span>
-      <select
-        className='border-0 bg-success text-white font-weight-bold'
-        name='currency'
-        id='currency'
-        value={selectedCurrency}
-        onChange={handleCurrencyChange}
-      >
-        <option value='$'>$ Dollar</option>
-        <option value='£'>£ Pound</option>
-        <option value='€'>€ Euro</option>
-        <option value='₹'>₹ Ruppee</option>
-      </select>
+    <label className='rounded alert alert-success py-0'>
+      <span className='font-weight-bold '>Currency: 
+        <select
+          className='border-0 alert alert-success font-weight-bold my-0'
+          name='currency'
+          id='currency'
+          value={selectedCurrency}
+          onChange={handleCurrencyChange}
+        >
+          <option value='$'>$ Dollar</option>
+          <option value='£'>£ Pound</option>
+          <option value='€'>€ Euro</option>
+          <option value='₹'>₹ Ruppee</option>
+        </select>
+      </span>
     </label>
   );
 };
