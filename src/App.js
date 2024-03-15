@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -7,6 +7,7 @@ import Budget from './components/Budget';
 import Remaining from './components/Remaining';
 import ExpenseTotal from './components/ExpenseTotal';
 import ExpenseList from './components/ExpenseList';
+import CurrencyDropDown from './components/CurrencyDropDown';
 
 // Add code to import the other components here under
 
@@ -15,6 +16,12 @@ import { AppProvider } from './context/AppContext';
 import AllocationForm from './components/AllocationForm';
 
 const App = () => {
+    const [selectedCurrency, setSelectedCurrency] = useState('£');
+
+    const handleCurrencyChange = (newCurrency) => {
+        setSelectedCurrency(newCurrency);
+    };
+
     return (
         <AppProvider>
             <div className='container'>
@@ -23,21 +30,28 @@ const App = () => {
                         {
                             /* Add Budget component here */
                             <div className='col-sm'>
-                                <Budget />
+                                <Budget selectedCurrency={selectedCurrency}/>
                             </div>
                         }      
 
                         {
                             /* Add Remaining component here*/
                             <div className='col-sm'>
-                                <Remaining />
+                                <Remaining selectedCurrency={selectedCurrency}/>
                             </div>
                         }        
 
                         {
                             /* Add ExpenseTotal component here */
                             <div className='col-sm'>
-                                <ExpenseTotal />
+                                <ExpenseTotal selectedCurrency={selectedCurrency}/>
+                            </div>
+                        }      
+
+                        {
+                            /* Currency component here */
+                            <div className='col-sm'>
+                                <CurrencyDropDown onCurrencyChange={handleCurrencyChange}/>
                             </div>
                         }        
                        
@@ -45,7 +59,7 @@ const App = () => {
                         {
                             /* Add ExpenseList component here */
                             <div className='col-sm'> 
-                                <ExpenseList/>
+                                <ExpenseList selectedCurrency={selectedCurrency}/>
                             </div>
                         }         
 
@@ -56,7 +70,7 @@ const App = () => {
                         {
                             /* Add AllocationForm component here under */
                             <div className='col-sm'> 
-                                <AllocationForm/>
+                                <AllocationForm selectedCurrency={selectedCurrency}/>
                             </div>
                         }        
 

@@ -1,0 +1,8 @@
+/* styles.css */
+select.border-0.bg-success.text-white.font-weight-bold option {
+    transition: background-color 0.3s ease;
+}
+  
+select.border-0.bg-success.text-white.font-weight-bold option:hover {
+    background-color: #e0efe3 !important; /* Green color from Bootstrap */
+}

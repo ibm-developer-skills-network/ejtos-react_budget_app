@@ -66,9 +66,9 @@ const AllocationForm = (props) => {
 
                 <div className='col-sm my-2'>
                     <div className='row'>
-                        {"£"}
+                        {props.selectedCurrency}
                         <input
-                            className='col-sm'
+                            className='currency-input col-sm mx-1'
                             required='required'
                             type='number'
                             id='cost'

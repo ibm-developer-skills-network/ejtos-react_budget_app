@@ -3,7 +3,7 @@ import ExpenseItem from './ExpenseItem';
 import { AppContext } from '../context/AppContext';
 
 
-const ExpenseList = () => {
+const ExpenseList = (props) => {
     const {expenses} = useContext(AppContext);
 
     return (
@@ -23,7 +23,8 @@ const ExpenseList = () => {
                         return <ExpenseItem id={expense.id} 
                                      key={expense.id} 
                                      name={expense.name}
-                                     cost={expense.cost}/>
+                                     cost={expense.cost}
+                                     currency={props.selectedCurrency}/>
                     })
                 }
             </tbody>
