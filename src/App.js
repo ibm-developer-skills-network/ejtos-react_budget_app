@@ -15,7 +15,10 @@ const App = () => {
             <div className='container'>
                 <h1 className='mt-3'>Company's Budget Allocation</h1>
                     <div className='row mt-3'>
-                        {
+                        {                // Budget component
+                    <div className='col-sm'>
+                        <Budget />
+                    </div>
                             /* Add Budget component here */
                         }        
 
