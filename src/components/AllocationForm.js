@@ -37,23 +37,23 @@ const AllocationForm = (props) => {
       if(action === "Dollar"){
 
            dispatch({
-                type:'CHG_CURRENCY'
+                type:'CHG_CURRENCY',
                 payload:curren,
               });
-       } if else (action === "Pound") {
+       } else if (action === "Pound") {
              dispatch({
-                type:'CHG_CURRENCY'
+                type:'CHG_CURRENCY',
                 payload:curren,
               });
-      } if else (action === "Ruppee"){
+       } else if (action === "Ruppee"){
 
              dispatch({
-                type:'CHG_CURRENCY'
+                type:'CHG_CURRENCY',
                 payload:curren,
               });
-     } else{
+       } else {
             dispatch({
-                type:'CHG_CURRENCY'
+                type:'CHG_CURRENCY',
                 payload:curren,
               });
  
