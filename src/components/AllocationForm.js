@@ -6,12 +6,13 @@ const AllocationForm = (props) => {
 
     const [name, setName] = useState('');
     const [cost, setCost] = useState('');
+    const [curren, setCurren] = useState('');
     const [action, setAction] = useState('');
 
     const submitEvent = () => {
 
             if(cost > remaining) {
-                alert("The value cannot exceed remaining funds  £"+remaining);
+                alert(`The value cannot exceed remaining funds  ${curren}`+remaining);
                 setCost("");
                 return;
             }
@@ -31,6 +32,37 @@ const AllocationForm = (props) => {
                     payload: expense,
                 });
             }
+
+
+      if(action === "Dollar"){
+
+           dispatch({
+                type:'CHG_CURRENCY'
+                payload:curren,
+              });
+       } if else (action === "Pound") {
+             dispatch({
+                type:'CHG_CURRENCY'
+                payload:curren,
+              });
+      } if else (action === "Ruppee"){
+
+             dispatch({
+                type:'CHG_CURRENCY'
+                payload:curren,
+              });
+     } else{
+            dispatch({
+                type:'CHG_CURRENCY'
+                payload:curren,
+              });
+ 
+
+     }
+             
+
+
+
     };
 
     return (
@@ -54,7 +86,19 @@ const AllocationForm = (props) => {
                 <div className="input-group-prepend" style={{ marginLeft: '2rem' }}>
                 <label className="input-group-text" htmlFor="inputGroupSelect01">Currency</label>
                   </div>
-                  <select className="custom-select" id="inputGroupSelect01" onChange={(event) => setName(event.target.value)}>
+                  <select className="custom-select" id="inputGroupSelect01" onChange={(event) => {if (event.target.value === 'Dollar') 
+                                                                                                   setCurren('$')
+                                                                                                   setAction(event.target.value)
+                                                                                                  else if (event.target.value === 'Pound') 
+                                                                                                   setCurren('£')
+                                                                                                   setAction(event.target.value)
+                                                                                                  else if (event.target.value === 'Ruppee') 
+                                                                                                   setCurren('₹')
+                                                                                                   setAction(event.target.value)
+                                                                                                  else 
+                                                                                                   setCurren('€')
+                                                                                                   setAction(event.target.value)
+                                                                                                    }}>
                         <option defaultValue>Dollar</option>
                         <option value="Pound" name="Pound"> Pound</option>
                 <option value="Euro" name="Euro">Euro</option>
