@@ -4,15 +4,19 @@ import { AppContext } from '../context/AppContext';
 const AllocationForm = (props) => {
     const { dispatch,remaining  } = useContext(AppContext);
 
-    const [name, setName] = useState('');
-    const [cost, setCost] = useState('');
-    const [action, setAction] = useState('');
+    const [name, setName] = useState(0);
+    const [cost, setCost] = useState(0);
+    const [action, setAction] = useState(0);
 
     const submitEvent = () => {
 
             if(cost > remaining) {
                 alert("The value cannot exceed remaining funds  £"+remaining);
                 setCost("");
+                return;
+            }
+            if (typeof cost === 'string' || cost instanceof String){
+                alert("The value inputted is not a number! Please input only numbers.")
                 return;
             }
 
