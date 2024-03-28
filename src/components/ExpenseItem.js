@@ -1,88 +1,94 @@
-import React, { useContext, useState } from 'react';
+// import React, { useContext } from 'react';
+// import { TiDelete } from 'react-icons/ti';
+// import { AppContext } from '../context/AppContext';
+
+// const ExpenseItem = (props) => {
+//     const { dispatch } = useContext(AppContext);
+
+//     const handleDeleteExpense = () => {
+//         dispatch({
+//             type: 'DELETE_EXPENSE',
+//             payload: props.id,
+//         });
+//     };
+
+//     const increaseAllocation = (name) => {
+//         const expense = {
+//             name: name,
+//             cost: 100000,
+//         };
+
+//         dispatch({
+//             type: 'ADD_EXPENSE',
+//             payload: expense
+//         });
+
+//     }
+
+
+//     return (
+//         <tr>
+//         <td>{props.name}</td>
+//         <td>Rp {props.cost}</td>
+//         <td><button onClick={event=> increaseAllocation(props.name)}>+</button></td>
+//         <td><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
+//         </tr>
+//     );
+// };
+
+// export default ExpenseItem;
+
+import React, { useContext } from 'react';
+
+import { FaPlusCircle,FaMinusCircle } from 'react-icons/fa';
+import { TiDelete} from 'react-icons/ti';
 import { AppContext } from '../context/AppContext';
 
-const Currency = () => {
-  const { currency, dispatch } = useContext(AppContext);
+const ExpenseItem = (props) => {
+    const { currency, dispatch } = useContext(AppContext);
 
-  const [isOpen, setIsOpen] = useState(false);
+    const handleDeleteExpense = () => {
+        dispatch({
+            type: 'DELETE_EXPENSE',
+            payload: props.id,
+        });
+    };
 
-  const setCurrencyHandler = (currency) => {
-    dispatch({
-      type: 'CHG_CURRENCY',
-      payload: currency,
-    });
-  };
+    const increaseAllocation = (name) => {
+        const expense = {
+            name: name,
+            cost: 10,
+        };
 
-  //  '£' '€' '$' '₹'
+        dispatch({
+            type: 'ADD_EXPENSE',
+            payload: expense
+        });
 
-  const currencyLabel = ()=> {
-    switch(currency){
-      case '$' :
-        return '$ Dollar'
-      case '£' :
-        return '£ Pound'
-      case '€' :
-        return '€ Euro'
-      case '₹' :
-        return '₹ Ruppee'
-      default:
-        return ''
     }
-  }
 
-  return (
-    <div id="currency-menu" className="dropdown" style={{ cursor: 'pointer' }}>
-      <button
-        id="currency-menu-button"
-        className="btn dropdown-toggle"
-        type="button"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-        style={{ backgroundColor: '#93e399', color: '#fff' }}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        Currency {'('}{currencyLabel()}{')'}
-      </button>
-      <ul className={`custom-menu dropdown-menu ${isOpen ? 'show' : ''} `}>
-        <li>
-          <button
-            className="dropdown-item"
-            type="button"
-            onClick={() => setCurrencyHandler('$')}
-          >
-           $ Dollar
-          </button>
-        </li>
-        <li>
-          <button
-            className="dropdown-item"
-            type="button"
-            onClick={() => setCurrencyHandler('£')}
-          >
-           £ Pound
-          </button>
-        </li>
-        <li>
-          <button
-            className="dropdown-item"
-            type="button"
-            onClick={() => setCurrencyHandler('€')}
-          >
-           € Euro
-          </button>
-        </li>
-        <li>
-          <button
-            className="dropdown-item"
-            type="button"
-            onClick={() => setCurrencyHandler('₹')}
-          >
-           ₹ Ruppee
-          </button>
-        </li>
-      </ul>
-    </div>
-  );
+    const decreaseAllocation = (name) => {
+        const expense = {
+            name: name,
+            cost: 10,
+        };
+
+        dispatch({
+            type: 'RED_EXPENSE',
+            payload: expense
+        });
+
+    }
+
+    return (
+        <tr>
+            <td className="col">{props.name}</td>
+            <td className="col">{currency}{props.cost}</td>
+            <td className="col"><FaPlusCircle size='1.2em' color="#4ead5c" onClick={event => increaseAllocation(props.name)}></FaPlusCircle></td>
+            <td className="col"><FaMinusCircle size='1.2em' color="#af1e11" onClick={event => decreaseAllocation(props.name)}></FaMinusCircle></td>
+            <td className="col"><TiDelete size='1.5em' onClick={handleDeleteExpense}></TiDelete></td>
+        </tr>
+    );
 };
 
-export default Currency;
+export default ExpenseItem;
